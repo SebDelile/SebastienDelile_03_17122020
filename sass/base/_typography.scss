@@ -3,3 +3,16 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+.header, .footer{
+    &__logo{
+        font-family: 'Shrikhand', sans-serif;
+    }
+}
+input, button {
+    font: inherit;
+}
+
+@each $key, $value in $font-size {
+    #{$key} {font-size:$value;}
+}
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
 *,
 *::after,
@@ -11,8 +12,95 @@ body {
   box-sizing: border-box;
 }
 
+body > * {
+  padding: 0 5%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.header__logo, .footer__logo {
+  font-family: "Shrikhand", sans-serif;
+}
+
+input, button {
+  font: inherit;
+}
+
+h1 {
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+input {
+  font-size: 1.4rem;
+}
+
+logo-header {
+  font-size: 2rem;
+}
+
+logo-footer {
+  font-size: 1rem;
+}
+
+.header {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.header__logo {
+  width: 50%;
+  min-width: 12rem;
+}
+
+.search {
+  padding: 0;
+  /*pleine page donc suppression du padding général*/
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ececec;
+  box-shadow: inset 0 1.4rem 0.7rem -1.4rem rgba(0, 0, 0, 0.5);
+}
+.search__title {
+  display: none;
+}
+.search__input {
+  height: 3.36rem;
+  border: none;
+  background-color: unset;
+  width: 12rem;
+}
+.search__input::placeholder {
+  color: black;
+}
+.search__icon {
+  height: 3.36rem;
+  padding: 1.12rem;
 }
 
 /*# sourceMappingURL=style.css.map */
