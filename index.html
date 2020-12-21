@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,83 +10,84 @@
 </head>
 
 <body>
-    <header class="header"></header>
-    <img class="header__logo" src="public/img/logo/ohmyfood@2x.svg" alt="Ohmyfood">
+    <header class="header">
+        <img class="header__logo" src="public/img/logo/ohmyfood@2x.svg" alt="Ohmyfood">
+    </header>
     <main class="container">
         <div class="loadingSpinner"></div>
         <section class="search">
             <div class="search__locate">
-                <input class="search__locate__icon" type="image" src="" alt="localiser">
-                <input class="search__locate__input" type="text" placeholder="Paris, Belleville">
+                <input class="search__icon" type="image" src="" alt="localiser">
+                <input class="search__input" type="text" placeholder="Paris, Belleville">
             </div>
             <div class="search__slogan">
-                <h1 class="search__slogan__title">Réserver le menu qui vous convient</h1>
-                <h3 class="search__slogan_subtitle">Découvrez des restaurants d'exception, sélectionnés par nos soins
+                <h1 class="search__title">Réserver le menu qui vous convient</h1>
+                <h3 class="search__subtitle">Découvrez des restaurants d'exception, sélectionnés par nos soins
                 </h3>
-                <button class="search__slogan__button" type="button"></button>Explorer nos restaurants</button>
+                <button class="search__button" type="button"></button>Explorer nos restaurants</button>
             </div>
         </section>
         <section class="principle">
             <h2 class="principle__title">Fonctionnement</h2>
-            <button class="principle__button" type="button">
-                <div class="principle__button__index">1</div>
-                <img class="principle__button__logo" src="#" alt="" />
-                <p class="principle__button__text">Choisissez un restaurant</p>
-            </button>
-            <button class="principle__button" type="button">
-                <div class="principle__button__index">2</div>
-                <img class="principle__button__logo" src="#" alt="" />
-                <p class="principle__button__text">composez votre menu</p>
-            </button>
-            <button class="principle__button" type="button">
-                <div class="principle__button__index">3</div>
-                <img class="principle__button__logo" src="#" alt="" />
-                <p class="principle__button__text">Dégustez au restaurant</p>
-            </button>
+            <div class="principle__step">
+                <div class="principle__index">1</div>
+                <img class="principle__logo" src="#" alt="" />
+                <p class="principle__text">Choisissez un restaurant</p>
+            </div>
+            <div class="principle__step">
+                <div class="principle__index">2</div>
+                <img class="principle__logo" src="#" alt="" />
+                <p class="principle__text">composez votre menu</p>
+            </div>
+            <div class="principle__step">
+                <div class="principle__index">3</div>
+                <img class="principle__logo" src="#" alt="" />
+                <p class="principle__text">Dégustez au restaurant</p>
+            </div>
         </section>
         <section class="foods">
             <h2 class="foods__title">Restaurants</h2>
             <div class="foods__list">
-                <div class="foods__list__card">
-                    <img class="foods__list__card__img" src="#" alt="" />
-                    <div class="foods__list__card__legend">
-                        <h4 class="foods__list__card__legend__title">La palette du goût</h4>
-                        <p class="foods__list__card__legend__place">Ménilmontant</p>
+                <article class="foods__card">
+                    <img class="foods__card__img" src="#" alt="" />
+                    <div class="foods__card__legend">
+                        <h4 class="foods__card__title">La palette du goût</h4>
+                        <p class="foods__card__place">Ménilmontant</p>
                     </div>
-                    <div class="foods__list__card__new">Nouveau</div>
-                    <input class="foods__list__card__like" type="image" src="#" alt="like">
-                    <input class="foods__list__card__unlike" type="image" src="#" alt="unlike">
-                </div>
-                <div class="foods__list__card">
-                    <img class="foods__list__card__img" src="#" alt="" />
-                    <div class="foods__list__card__legend">
-                        <h4 class="foods__list__card__legend__title">La note enchantée</h4>
-                        <p class="foods__list__card__legend__place">Charonne</p>
+                    <div class="foods__card__new">Nouveau</div>
+                    <input class="foods__card__like" type="image" src="#" alt="like">
+                    <input class="foods__card__unlike" type="image" src="#" alt="unlike">
+                </article>
+                <article class="foods__card">
+                    <img class="foods__card__img" src="#" alt="" />
+                    <div class="foods__card__legend">
+                        <h4 class="foods__card__title">La palette du goût</h4>
+                        <p class="foods__card__place">Ménilmontant</p>
                     </div>
-                    <div class="foods__list__card__new">Nouveau</div>
-                    <input class="foods__list__card__like" type="image" src="#" alt="like">
-                    <input class="foods__list__card__unlike" type="image" src="#" alt="unlike">
-                </div>
-                <div class="foods__list__card">
-                    <img class="foods__list__card__img" src="#" alt="" />
-                    <div class="foods__list__card__legend">
-                        <h4 class="foods__list__card__legend__title">À la française</h4>
-                        <p class="foods__list__card__legend__place">Cité rouge</p>
+                    <div class="foods__card__new">Nouveau</div>
+                    <input class="foods__card__like" type="image" src="#" alt="like">
+                    <input class="foods__card__unlike" type="image" src="#" alt="unlike">
+                </article>
+                <article class="foods__card">
+                    <img class="foods__card__img" src="#" alt="" />
+                    <div class="foods__card__legend">
+                        <h4 class="foods__card__title">La palette du goût</h4>
+                        <p class="foods__card__place">Ménilmontant</p>
                     </div>
-                    <div class="foods__list__card__new">Nouveau</div>
-                    <input class="foods__list__card__like" type="image" src="#" alt="like">
-                    <input class="foods__list__card__unlike" type="image" src="#" alt="unlike">
-                </div>
-                <div class="foods__list__card">
-                    <img class="foods__list__card__img" src="#" alt="" />
-                    <div class="foods__list__card__legend">
-                        <h4 class="foods__list__card__legend__title">Le déclice des sens</h4>
-                        <p class="foods__list__card__legend__place">Folie-Méricourt</p>
+                    <div class="foods__card__new">Nouveau</div>
+                    <input class="foods__card__like" type="image" src="#" alt="like">
+                    <input class="foods__card__unlike" type="image" src="#" alt="unlike">
+                </article>
+                <article class="foods__card">
+                    <img class="foods__card__img" src="#" alt="" />
+                    <div class="foods__card__legend">
+                        <h4 class="foods__card__title">La palette du goût</h4>
+                        <p class="foods__card__place">Ménilmontant</p>
                     </div>
-                    <div class="foods__list__card__new">Nouveau</div>
-                    <input class="foods__list__card__like" type="image" src="#" alt="like">
-                    <input class="foods__list__card__unlike" type="image" src="#" alt="unlike">
-                </div>
+                    <div class="foods__card__new">Nouveau</div>
+                    <input class="foods__card__like" type="image" src="#" alt="like">
+                    <input class="foods__card__unlike" type="image" src="#" alt="unlike">
+                </article>
             </div>
         </section>
     </main>
