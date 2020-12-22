@@ -52,6 +52,66 @@ box-shadow: inset 0 map-get($font-size, input) 0.5*map-get($font-size, input) -1
         background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
         border: none;
         border-radius: 1.6*map-get($font-size, button);
+    }
+}
+
+.principle {
+    padding-top: $section-padding-vertical;
+    padding-bottom: $section-padding-vertical;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    &__title {
+        margin-bottom: 0.5*map-get($font-size, h2);
+    }
+    &__step {
+        background-color: map-get($color, background-main);
+        height: 4*map-get($font-size, h4);
+        width: auto;
+        border-radius: map-get($font-size, h4);
+        margin-top: 2/3*map-get($font-size, h4);
+        margin-bottom: 2/3*map-get($font-size, h4);
+        margin-left: 2/3*map-get($font-size, h4);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        &:last-child{
+            background-color: map-get($color, quaternary);
+        }
+    }
+    &__index{
+        height: 4/3*map-get($font-size, h4); /*1/3 de la hauteur de step*/
+        width: 4/3*map-get($font-size, h4);
+        border-radius: 2/3*map-get($font-size, h4);
+        background-color: map-get($color, primary);
+        color: white;
+        line-height: 4/3*map-get($font-size, h4);
+        font-size: map-get($font-size, p);
+        vertical-align: middle;
+        text-align: center;
+        position: absolute;
+        top: 2*map-get($font-size, h4)-2/3*map-get($font-size, h4);
+        left: -2/3*map-get($font-size, h4);
+        z-index: 2;
+    }
+    &__logo {
+        width: 1.2*map-get($font-size, h4);
+        margin-left: 1.5*map-get($font-size, h4);
+        margin-right: 0.8*map-get($font-size, h4);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+            display: block;
+            max-height: 1.2*map-get($font-size, h4);
+            max-width: map-get($font-size, h4);
+        }
+    }
+    &__text {
+
 
     }
 }
