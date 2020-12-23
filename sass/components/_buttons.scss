@@ -1,0 +1,15 @@
+.fa-heart{
+    color: map-get($color, primary);
+    font-size: inherit;
+    position: absolute;
+    &.fas {
+        color: map-get($color, primary);
+    }
+    &.far {
+        color: black;
+        font-weight: lighter;
+    }
+}
+
+
+
