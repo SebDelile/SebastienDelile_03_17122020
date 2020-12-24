@@ -103,11 +103,16 @@ footer a {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.footer > * {
+  padding-left: 1.25vw;
+  /*léger padding supplémentaire sur cette section*/
+}
 .footer__logo {
   font-weight: normal;
   margin-bottom: 0.65rem;
 }
 .footer__links {
+  width: 100%;
   line-height: 1.5rem;
   vertical-align: middle;
 }
