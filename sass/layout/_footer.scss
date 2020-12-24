@@ -1,0 +1,21 @@
+.footer {
+    background-color: map-get($color, background-footer);
+    color: white;
+    padding-top: $section-padding-vertical;
+    padding-bottom: $section-padding-vertical;
+    &__logo {
+        font-weight: normal;
+        margin-bottom: 0.5 * map-get($font-size, h3);
+    }
+    &__links {
+        line-height: 1.5 * map-get($font-size, footer a);
+        vertical-align: middle;
+        &__icon {
+            width : 1.5 * map-get($font-size, footer i );
+        }
+    }
+    .fas {
+        display: block;
+        width: 10px;
+    }
+}

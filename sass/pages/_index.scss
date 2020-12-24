@@ -137,6 +137,8 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        margin : 2.5vw 0; /*quasi la même que la marge horizontale*/
+        box-shadow: 0 0.5rem 0.5rem gray; /*A changer*/
         &__img {
             object-fit: cover;
             height: 70%;
@@ -144,17 +146,18 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         }
         &__legend {
             height: 30%;
+            min-height: 3 * map-get($font-size, h4);
             width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8 * map-get($font-size, h4) 2/3 * map-get($font-size, h4);
+            padding: 0 map-get($font-size, h4);
         }
         &__text {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             height: 100%;
         }
         &__like {
@@ -183,6 +186,9 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
             font-size: 0.8 * map-get($font-size, p);
             padding: 0.2 * map-get($font-size, p) 0.8 * map-get($font-size, p);
             color: map-get($color, new);
+        }
+        &:nth-child(3) .foods__card__new, &:nth-child(4) .foods__card__new {
+            display: none;
         }
     }
 }
