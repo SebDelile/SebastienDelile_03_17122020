@@ -1,0 +1,34 @@
+.loading-spinner {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: map-get($color, tertiary);
+    > * {
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+
+    }
+    &__logo, &__bar {
+        width: 60vw; /*height logo => 10.4vw*/
+        height: 10.4vw;
+        transform: translate(-50%, -20vw);
+    }
+    &__bar {
+        background-color: map-get($color,tertiary);
+        opacity: 0.8;
+    }
+    &__spinner{
+        width: 30vw; /*height logo => 10.4vw*/
+        height: 30vw;
+        transform: translate(-50%, 5vw);
+        font-size: 30vw;
+        color: map-get($color,slight-text);
+    }
+
+    /*reste à mettre une animation pour faire diminuer la div __bar vers la droite et touner le spinner*/
+}

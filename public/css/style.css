@@ -124,6 +124,41 @@ button {
   font-weight: lighter;
 }
 
+.loading-spinner {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #99E2D0;
+  /*reste à mettre une animation pour faire diminuer la div __bar vers la droite et touner le spinner*/
+}
+.loading-spinner > * {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+}
+.loading-spinner__logo, .loading-spinner__bar {
+  width: 60vw;
+  /*height logo => 10.4vw*/
+  height: 10.4vw;
+  transform: translate(-50%, -20vw);
+}
+.loading-spinner__bar {
+  background-color: #99E2D0;
+  opacity: 0.8;
+}
+.loading-spinner__spinner {
+  width: 30vw;
+  /*height logo => 10.4vw*/
+  height: 30vw;
+  transform: translate(-50%, 5vw);
+  font-size: 30vw;
+  color: #353535;
+}
+
 .header {
   width: 100%;
   margin-top: 2rem;
