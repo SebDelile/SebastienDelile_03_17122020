@@ -3,10 +3,8 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
-.header, .footer{
-    &__logo{
-        font-family: 'Shrikhand', sans-serif;
-    }
+.footer__logo, .banner__title{
+    font-family: 'Shrikhand', sans-serif;
 }
 input, button {
     font: inherit;

@@ -1,0 +1,105 @@
+.banner {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 80vw; /*ratio de l'image à ~0.8*/
+    &__img {
+        width: 100%;
+        object-fit: cover;
+    }
+    &__legend {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0.75 * map-get($font-size, h1) $main-padding;
+        background-color: map-get($color, background-main);
+        border-radius: map-get($font-size, h1) map-get($font-size, h1) 0 0;
+    }
+    &__title { 
+        font-weight: normal;
+    }
+    &__like {
+
+    }
+}
+
+.menu {
+    background-color: map-get($color, background-main);
+    padding: 0 0 $section-padding-vertical 0;
+    width: 100%;
+    &__order {
+        margin-top: map-get($font-size, button);
+        padding: map-get($font-size, button) 3* map-get($font-size, button);
+    }
+}
+.step {
+    padding: 2/3 * $main-padding;
+    &__title {
+        margin: 0 1/3 * $main-padding;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 0.6 * map-get($font-size, h2);
+    }
+    &__spacer {
+        margin: 0.12 * map-get($font-size, h2) 1/3 * $main-padding 0.5 * map-get($font-size, h2) 1/3 * $main-padding;
+        height: 0.12 * map-get($font-size, h2);
+        width: 1.5 * map-get($font-size, h2);
+        background-color: map-get($color, tertiary);
+    }
+}
+.dish {
+    margin: 0.5 * map-get($font-size, h3) 0;
+    width: 100%;
+    height: 3.5 * map-get($font-size, h3);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.6 * map-get($font-size, h3);
+    overflow: hidden;
+    &__checkbox {
+        display: none;
+        &:checked+* {
+            width: 4rem; /*Mettre une animation glissement latéral*/
+        }
+    }
+    &__selected {
+        order : 3;
+        height: 3.5 * map-get($font-size, h3);
+        width: 0;
+        background-color: map-get($color, tertiary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: none;
+        i {
+            color: white;
+            font-size: map-get($font-size, h3);
+        }
+    }
+    &__text {
+        padding: 0.5 * map-get($font-size, h3) 2/3 * $main-padding;
+        height: 3.5 * map-get($font-size, h3);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 1;
+        overflow: hidden;
+        > * {white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    &__price {
+        align-self: flex-end;
+        padding-bottom: 0.4 * map-get($font-size, h3);
+        padding-right: $main-padding;
+        flex : none;
+    }
+}
+

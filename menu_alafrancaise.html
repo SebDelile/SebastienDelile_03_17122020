@@ -1,174 +1,175 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <title>Ohmyfood! Paris | A la française</title>
 </head>
+
 <body>
     <header class="header">
         <img class="header__logo" src="public/img/logo/ohmyfood@2x.svg" alt="Ohmyfood">
-        <input class="header__goback" type="image" src="#" alt="retour">
+        <button class="header__goback" type="button"><i class="fas fa-arrow-left"></i></button>
     </header>
-
-    <main class="container">
-        <div class="loadingSpinner"></div>
-        <section class="banner">
-            <img class="banner__img" src="#" alt="">
+    <div class="loadingSpinner"></div>
+    <section class="banner">
+        <img class="banner__img" src="public/img/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
+            alt="restaurant-banner">
+        <div class="banner__legend">
             <h1 class="banner__title">À la française</h1>
-            <input class="banner__like" type="image" src="#" alt="like">
-            <input class="banner__unlike" type="image" src="#" alt="unlike">
-        </section>
-        <section class="menu">
-            <article class="step">
-                <h2 class="step__title">Entrées</h2>
-                <div class="step__spacer"></div>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-            </article>
+            <label class="banner__like like">
+                <input type="checkbox">
+                <i class="fas fa-heart"></i>
+                <i class="far fa-heart"></i>
+            </label>
+        </div>
+    </section>
+    <section class="menu">
+        <article class="step">
+            <h2 class="step__title">Entrées</h2>
+            <div class="step__spacer"></div>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Tartare de poulpe acidulé</h3>
+                    <p class="dish__subtitle">Aux zestes d'orange</p>
+                </div>
+                <p class="dish__price"><strong>25€</strong></p>
+            </label>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Velouté de légumes d'antan</h3>
+                    <p class="dish__subtitle">Carotte, panais, topinambour</p>
+                </div>
+                <p class="dish__price"><strong>35€</strong></p>
+            </label>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Soupe à l'oignon</h3>
+                    <p class="dish__subtitle">Revisitée</p>
+                </div>
+                <p class="dish__price"><strong>20€</strong></p>
+            </label>
+        </article>
 
-            <article class="step">
-                <h2 class="step__title">Entrées</h2>
-                <div class="step__spacer"></div>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-            </article>
+        <article class="step">
+            <h2 class="step__title">Plats</h2>
+            <div class="step__spacer"></div>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Coquilles Saint-Jacques</h3>
+                    <p class="dish__subtitle">Accompagnées d'une purée de panais</p>
+                </div>
+                <p class="dish__price"><strong>40€</strong></p>
+            </label>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Magret de canard</h3>
+                    <p class="dish__subtitle">Et parmentier de pommes de terre</p>
+                </div>
+                <p class="dish__price"><strong>35€</strong></p>
+            </label>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Pigeonneau d’Ille-et-Vilaine</h3>
+                    <p class="dish__subtitle">Sur son lit de gnocchis aux légumes</p>
+                </div>
+                <p class="dish__price"><strong>44€</strong></p>
+            </label>
+        </article>
 
-            <article class="step">
-                <h2 class="step__title">Entrées</h2>
-                <div class="step__spacer"></div>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-                <label class="dish">
-                    <input type="checkbox" class="dish__checkbox">
-                    <div class="dish__text">
-                        <h3 class="dish__title">tartare de poulpe acidulé</h3>
-                        <p class="dish__subtitle">Au zests d'orange</p>
-                    </div>
-                    <div class="dish__price">
-                        25€
-                    </div>
-                    <div class="dish__selected">
-                        <img class="dish__selected__img" src="#">
-                    </div>
-                </label>
-            </article>
+        <article class="step">
+            <h2 class="step__title">Desserts</h2>
+            <div class="step__spacer"></div>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Pétales de violettes glacés</h3>
+                    <p class="dish__subtitle">Et purée de noisettes</p>
+                </div>
+                <p class="dish__price"><strong>18€</strong></p>
+            </label>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Fondant au chocolat</h3>
+                    <p class="dish__subtitle">Revisité</p>
+                </div>
+                <p class="dish__price"><strong>22€</strong></p>
+            </label>
+            <label class="dish">
+                <input type="checkbox" class="dish__checkbox">
+                <div class="dish__selected">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="dish__text">
+                    <h3 class="dish__title">Millefeuille croustillant</h3>
+                    <p class="dish__subtitle">Myrtilles et pâte d’amande</p>
+                </div>
+                <p class="dish__price"><strong>23€</strong></p>
+            </label>
+        </article>
 
-            <button class="order" type="button">
-                Commander
-            </button>
-        </section>
-
-
-
-    </main>
+        <button class="menu__order button-main" type="button">
+            Commander
+        </button>
+    </section>
 
     <footer class="footer">
-        <h2 class="footer__logo">Ohmyfood</h2>
-        <p class="footer__text"><a><img src="#" alt="" />Proposer un restaurant</a></p>
-        <p class="footer__text"><a><img src="#" alt="" />Devenir partenaire</a></p>
-        <p class="footer__text"><a>Mentions légales</a></p>
-        <p class="footer__text"><a>Contact</a></p>
+        <h3 class="footer__logo">Ohmyfood</h3>
+        <table class="footer__links">
+            <tr>
+                <td class="footer__links__icon"><i class="fas fa-utensils"></i></td>
+                <td><a href="#">Proposer un restaurant</a></td>
+            </tr>
+            <tr>
+                <td class="footer__links__icon"><i class="fas fa-hands-helping fa-xs"></i></td>
+                <td><a href="#">Devenir partenaire</a></td>
+            </tr>
+        </table>
+        <table class="footer__links">
+            <!--Deux tableaux pour séparer ça en version desktop-->
+            <tr>
+                <td colspan="2"><a href="#">Mentions légales</a></td>
+            </tr>
+            <tr>
+                <td colspan="2"><a href="mailto:welcome@ohmyfood.miam">Contact</a></td>
+            </tr>
+        </table>
     </footer>
 </body>
+
 </html>
