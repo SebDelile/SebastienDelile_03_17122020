@@ -156,7 +156,6 @@ button {
   height: 30vw;
   transform: translate(-50%, 5vw);
   font-size: 30vw;
-  color: #353535;
 }
 
 .header {
@@ -212,6 +211,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #ececec;
+  color: #353535;
   box-shadow: inset 0 1.2rem 0.6rem -1.2rem rgba(0, 0, 0, 0.5);
 }
 .search__title {
@@ -227,8 +227,8 @@ button {
   color: black;
 }
 .search__icon {
-  height: 2.88rem;
-  padding: 0.96rem;
+  margin-right: 0.96rem;
+  margin-left: 2.4rem;
 }
 
 .presentation {
@@ -238,7 +238,7 @@ button {
   justify-content: flex-start;
   align-items: center;
   padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 .presentation > * {
   text-align: center;
@@ -274,8 +274,15 @@ button {
   align-items: center;
   position: relative;
 }
+.principle__step:nth-child(2) .principle__logo {
+  font-size: 1.5625rem;
+}
 .principle__step:last-child {
   background-color: #F5EDFF;
+}
+.principle__step:last-child .principle__logo {
+  color: #9356DC;
+  font-size: 1.125rem;
 }
 .principle__index {
   height: 1.6666666667rem;
@@ -297,14 +304,11 @@ button {
   width: 1.5rem;
   margin-left: 1.875rem;
   margin-right: 1rem;
+  font-size: 1.25rem;
+  color: #7e7e7e;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-.principle__logo img {
-  display: block;
-  max-height: 1.5rem;
-  max-width: 1.25rem;
 }
 .foods {
   padding-top: 2rem;

@@ -15,7 +15,6 @@
     transform: translateY(-50%); /*alignement vertical*/
     width: map-get($font-size, h1);
     height: map-get($font-size, h1);
-    color: map-get($color, slight-text);
-   
+    color: map-get($color, dark-text);
   }
 }
