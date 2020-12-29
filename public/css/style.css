@@ -87,6 +87,7 @@ button {
   color: white;
   background: linear-gradient(330deg, #9356DC, #FF79DA);
   border-radius: 1.92rem;
+  box-shadow: 0 0.24rem 0.72rem rgba(64, 64, 64, 0.5);
 }
 
 .like {
@@ -156,7 +157,6 @@ button {
   height: 30vw;
   transform: translate(-50%, 5vw);
   font-size: 30vw;
-  color: #353535;
 }
 
 .header {
@@ -169,6 +169,7 @@ button {
 .header__logo {
   width: 50%;
   min-width: 12rem;
+  max-width: 20rem;
 }
 .header__goback {
   position: absolute;
@@ -203,6 +204,20 @@ button {
 .footer__links__icon {
   width: 1.5rem;
 }
+@media only screen and (min-width: 600px) {
+  .footer {
+    /*bascule en 2 colonnes*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer__logo {
+    width: 100%;
+  }
+  .footer__links {
+    width: 50%;
+  }
+}
 
 .search {
   padding: 0;
@@ -212,7 +227,8 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #ececec;
-  box-shadow: inset 0 1.2rem 0.6rem -1.2rem rgba(0, 0, 0, 0.5);
+  color: #353535;
+  box-shadow: inset 0 1.2rem 0.6rem -1.2rem rgba(64, 64, 64, 0.5);
 }
 .search__title {
   display: none;
@@ -227,8 +243,8 @@ button {
   color: black;
 }
 .search__icon {
-  height: 2.88rem;
-  padding: 0.96rem;
+  margin-right: 0.96rem;
+  margin-left: 2.4rem;
 }
 
 .presentation {
@@ -238,7 +254,7 @@ button {
   justify-content: flex-start;
   align-items: center;
   padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 .presentation > * {
   text-align: center;
@@ -253,9 +269,6 @@ button {
 .principle {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .principle__title {
   margin-bottom: 0.9rem;
@@ -263,7 +276,6 @@ button {
 .principle__step {
   background-color: #F6F6F6;
   height: 5rem;
-  width: auto;
   border-radius: 1.25rem;
   margin-top: 0.8333333333rem;
   margin-bottom: 0.8333333333rem;
@@ -273,9 +285,26 @@ button {
   justify-content: flex-start;
   align-items: center;
   position: relative;
+  box-shadow: 0 0.195rem 0.78rem rgba(64, 64, 64, 0.25);
+}
+.principle__step:nth-child(2) .principle__logo {
+  font-size: 1.5625rem;
 }
 .principle__step:last-child {
   background-color: #F5EDFF;
+}
+.principle__step:last-child .principle__logo {
+  color: #9356DC;
+  font-size: 1.125rem;
+}
+@media only screen and (min-width: 25rem) {
+  .principle__step {
+    /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
+    width: 21.6666666667rem;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(0.4166666667rem);
+  }
 }
 .principle__index {
   height: 1.6666666667rem;
@@ -297,15 +326,27 @@ button {
   width: 1.5rem;
   margin-left: 1.875rem;
   margin-right: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  font-size: 1.25rem;
+  color: #7e7e7e;
+  text-align: center;
 }
-.principle__logo img {
-  display: block;
-  max-height: 1.5rem;
-  max-width: 1.25rem;
+@media only screen and (min-width: 77.5rem) {
+  .principle {
+    /*On met les trois étapes sur la même ligne*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .principle__title {
+    width: 100%;
+  }
+  .principle__step {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
+
 .foods {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -318,6 +359,14 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+@media only screen and (min-width: 800px) {
+  .foods__list {
+    /*On passe sur 2 colonnes*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 .foods__card {
   width: 100%;
@@ -332,8 +381,7 @@ button {
   align-items: center;
   margin: 2.5vw 0;
   /*quasi la même que la marge horizontale*/
-  box-shadow: 0 0.5rem 0.5rem gray;
-  /*A changer*/
+  box-shadow: 0 0.26rem 0.52rem rgba(64, 64, 64, 0.25);
 }
 .foods__card__img {
   object-fit: cover;
@@ -367,6 +415,15 @@ button {
 }
 .foods__card:nth-child(3) .foods__card__new, .foods__card:nth-child(4) .foods__card__new {
   display: none;
+}
+@media only screen and (min-width: 800px) {
+  .foods__card {
+    /*On passe sur 2 colonnes*/
+    width: 47.5%;
+    /*laisse une marge au milieu de ~5%*/
+    height: calc(0.75 * 42.5vw);
+    /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
+  }
 }
 
 .banner {
@@ -405,16 +462,16 @@ button {
   padding: 1.2rem 3.6rem;
 }
 
-.step {
+.course {
   padding: 3.3333333333%;
 }
-.step__title {
+.course__title {
   margin: 0 1.6666666667%;
   text-transform: uppercase;
   font-weight: normal;
   font-size: 1.08rem;
 }
-.step__spacer {
+.course__spacer {
   margin: 0.216rem 1.6666666667% 0.9rem 1.6666666667%;
   height: 0.216rem;
   width: 2.7rem;

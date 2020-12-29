@@ -5,7 +5,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-color: darken(map-get($color, background-main), 4%);
-box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) -1 * map-get($font-size, input) rgba(0, 0, 0, 0.5);
+color: map-get($color, dark-text);
+box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) -1 * map-get($font-size, input) rgba(64, 64, 64, 0.5);
     &__title{
         display: none;
     }
@@ -20,9 +21,9 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         }
     }
     &__icon{
-        height: 2.4 * map-get($font-size, input);
-        padding: 0.8 * map-get($font-size, input)
 
+        margin-right: 0.8 * map-get($font-size, input);
+        margin-left: 2 * map-get($font-size, input) /*pour centrer le place holder*/
     }
 }
 
@@ -33,7 +34,7 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
     justify-content: flex-start;
     align-items: center;
     padding-top: $section-padding-vertical;
-    padding-bottom: 2 * $section-padding-vertical;
+    padding-bottom: $section-padding-vertical;
     >* {
         text-align: center
     }
@@ -51,17 +52,12 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
 .principle {
     padding-top: $section-padding-vertical;
     padding-bottom: $section-padding-vertical;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    
     &__title {
-        margin-bottom: 0.5*map-get($font-size, h2);
+        margin-bottom: 0.5 * map-get($font-size, h2);
     }
     &__step {
         background-color: map-get($color, background-main);
         height: 4 * map-get($font-size, h4);
-        width: auto;
         border-radius: map-get($font-size, h4);
         margin-top: 2/3 * map-get($font-size, h4);
         margin-bottom: 2/3 * map-get($font-size, h4);
@@ -71,9 +67,28 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         justify-content: flex-start;
         align-items: center;
         position: relative;
+        @include shadow(list);
+        &:nth-child(2) {
+            .principle__logo{
+                font-size: 1.25 * map-get($font-size, h4);
+            }
+        }
         &:last-child{
             background-color: map-get($color, quaternary);
+            .principle__logo {
+                color: map-get($color, primary);
+                font-size: 0.9 * map-get($font-size, h4);
+            }
         }
+
+        @media only screen and (min-width: map-get($breakpoint, principle1)) {
+            /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
+            width: (18 - 2/3) * map-get($font-size, h4);
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateX(1/2 * 2/3 * map-get($font-size, h4));
+        }
+        
     }
     &__index{
         height: 4/3 * map-get($font-size, h4); /*1/3 de la hauteur de step*/
@@ -94,17 +109,26 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         width: 1.2 * map-get($font-size, h4);
         margin-left: 1.5 * map-get($font-size, h4);
         margin-right: 0.8 * map-get($font-size, h4);
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        img {
-            display: block;
-            max-height: 1.2 * map-get($font-size, h4);
-            max-width: map-get($font-size, h4);
-        }
+        font-size: map-get($font-size, h4);
+        color: map-get($color, light-text);
+        text-align: center;
     }
     &__text {
-
+        
+    }
+    @media only screen and (min-width: map-get($breakpoint, principle2)) {
+        /*On met les trois étapes sur la même ligne*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &__title {
+            width: 100%;
+        }
+        &__step {
+            margin-left:0;
+            margin-right:0;
+        }
     }
 }
 
@@ -119,6 +143,12 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        @media only screen and (min-width: map-get($breakpoint, foods-list)){
+            /*On passe sur 2 colonnes*/
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
     &__card {
         width: 100%;
@@ -131,7 +161,7 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         justify-content: flex-start;
         align-items: center;
         margin : 2.5vw 0; /*quasi la même que la marge horizontale*/
-        box-shadow: 0 0.5rem 0.5rem gray; /*A changer*/
+        @include shadow(card);
         &__img {
             object-fit: cover;
             height: 70%;
@@ -164,6 +194,11 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         }
         &:nth-child(3) .foods__card__new, &:nth-child(4) .foods__card__new {
             display: none;
+        }
+        @media only screen and (min-width: map-get($breakpoint, foods-list)){
+            /*On passe sur 2 colonnes*/
+            width: 47.5%; /*laisse une marge au milieu de ~5%*/
+            height: calc(0.75 * 42.5vw); /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
         }
     }
 }
