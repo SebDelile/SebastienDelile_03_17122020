@@ -16,6 +16,7 @@ button {
     map-get($color, secondary)
   );
   border-radius: 1.6 * map-get($font-size, button);
+  @include shadow(button);
 }
 
 .like {

@@ -6,7 +6,7 @@ justify-content: center;
 align-items: center;
 background-color: darken(map-get($color, background-main), 4%);
 color: map-get($color, dark-text);
-box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) -1 * map-get($font-size, input) rgba(0, 0, 0, 0.5);
+box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) -1 * map-get($font-size, input) rgba(64, 64, 64, 0.5);
     &__title{
         display: none;
     }
@@ -72,6 +72,7 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         justify-content: flex-start;
         align-items: center;
         position: relative;
+        @include shadow(list);
         &:nth-child(2) {
             .principle__logo{
                 font-size: 1.25 * map-get($font-size, h4);
@@ -138,7 +139,7 @@ box-shadow: inset 0 map-get($font-size, input) 0.5 * map-get($font-size, input) 
         justify-content: flex-start;
         align-items: center;
         margin : 2.5vw 0; /*quasi la même que la marge horizontale*/
-        box-shadow: 0 0.5rem 0.5rem gray; /*A changer*/
+        @include shadow(card);
         &__img {
             object-fit: cover;
             height: 70%;
