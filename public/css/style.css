@@ -169,6 +169,7 @@ button {
 .header__logo {
   width: 50%;
   min-width: 12rem;
+  max-width: 20rem;
 }
 .header__goback {
   position: absolute;
@@ -202,6 +203,20 @@ button {
 }
 .footer__links__icon {
   width: 1.5rem;
+}
+@media only screen and (min-width: 600px) {
+  .footer {
+    /*bascule en 2 colonnes*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer__logo {
+    width: 100%;
+  }
+  .footer__links {
+    width: 50%;
+  }
 }
 
 .search {
@@ -254,9 +269,6 @@ button {
 .principle {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .principle__title {
   margin-bottom: 0.9rem;
@@ -264,7 +276,6 @@ button {
 .principle__step {
   background-color: #F6F6F6;
   height: 5rem;
-  width: auto;
   border-radius: 1.25rem;
   margin-top: 0.8333333333rem;
   margin-bottom: 0.8333333333rem;
@@ -285,6 +296,15 @@ button {
 .principle__step:last-child .principle__logo {
   color: #9356DC;
   font-size: 1.125rem;
+}
+@media only screen and (min-width: 25rem) {
+  .principle__step {
+    /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
+    width: 21.6666666667rem;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(0.4166666667rem);
+  }
 }
 .principle__index {
   height: 1.6666666667rem;
@@ -308,10 +328,25 @@ button {
   margin-right: 1rem;
   font-size: 1.25rem;
   color: #7e7e7e;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  text-align: center;
 }
+@media only screen and (min-width: 77.5rem) {
+  .principle {
+    /*On met les trois étapes sur la même ligne*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .principle__title {
+    width: 100%;
+  }
+  .principle__step {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 .foods {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -324,6 +359,14 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+@media only screen and (min-width: 800px) {
+  .foods__list {
+    /*On passe sur 2 colonnes*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 .foods__card {
   width: 100%;
@@ -372,6 +415,15 @@ button {
 }
 .foods__card:nth-child(3) .foods__card__new, .foods__card:nth-child(4) .foods__card__new {
   display: none;
+}
+@media only screen and (min-width: 800px) {
+  .foods__card {
+    /*On passe sur 2 colonnes*/
+    width: 47.5%;
+    /*laisse une marge au milieu de ~5%*/
+    height: calc(0.75 * 42.5vw);
+    /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
+  }
 }
 
 .banner {

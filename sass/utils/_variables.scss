@@ -14,6 +14,7 @@ $font-size: (
     footer a: 1rem
 );
 
+
 $color: (
     primary: #9356DC,
     secondary: #FF79DA,
@@ -25,4 +26,11 @@ $color: (
     dark-text: #353535,
     darker-text: #101010,
     new: #008766
+);
+
+$breakpoint: (
+    footer: 600px,
+    foods-list: 800px,
+    principle1: 20 * map-get($font-size, h4),
+    principle2: 62 * map-get($font-size, h4)
 );
