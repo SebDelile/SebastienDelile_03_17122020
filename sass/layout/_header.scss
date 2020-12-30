@@ -17,5 +17,9 @@
     width: map-get($font-size, h1);
     height: map-get($font-size, h1);
     color: map-get($color, dark-text);
+    @media only screen and (min-width: map-get($breakpoint, maximum-width)) {
+      /*à partir d'un certain point on arrête d'étirer et on fixe la largeur du contenu*/
+      left: calc(#{map-get($font-size, button)} + 1/2 * (100% - #{map-get($breakpoint, maximum-width)}));
+  }
   }
 }
