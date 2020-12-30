@@ -32,5 +32,7 @@ $breakpoint: (
     footer: 600px,
     foods-list: 800px,
     principle1: 20 * map-get($font-size, h4),
-    principle2: 62 * map-get($font-size, h4)
+    principle2: 62 * map-get($font-size, h4),
+    presentation: 40 * map-get($font-size, h3) + 16 * map-get($font-size, button),
+    maximum-width: 1280px
 );

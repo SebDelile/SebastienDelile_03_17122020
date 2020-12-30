@@ -15,6 +15,12 @@ body {
 body > * {
   padding: 0 5%;
 }
+@media only screen and (min-width: 1280px) {
+  body > * {
+    /*à partir d'un certain point on arrête d'étirer et on fixe la largeur du contenu*/
+    padding: 0 calc(1/2 * (0.1 * 1280px + 100% - 1280px));
+  }
+}
 
 a {
   color: inherit;
@@ -245,6 +251,7 @@ button {
 .search__icon {
   margin-right: 0.96rem;
   margin-left: 2.4rem;
+  /*pour centrer le place holder*/
 }
 
 .presentation {
@@ -266,6 +273,31 @@ button {
   font-weight: normal;
   margin-bottom: 1.95rem;
 }
+@media only screen and (min-width: 71.2rem) {
+  .presentation {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+  .presentation__title {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+  .presentation__subtitle {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 0;
+  }
+  .presentation__button {
+    grid-column: 2;
+    grid-row: 1/span 2;
+    margin: 0;
+  }
+}
+
 .principle {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -332,18 +364,35 @@ button {
 }
 @media only screen and (min-width: 77.5rem) {
   .principle {
-    /*On met les trois étapes sur la même ligne*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: start;
+    align-items: center;
   }
   .principle__title {
-    width: 100%;
+    grid-column: 1/span 3;
+    grid-row: 1;
+    margin-bottom: 0;
   }
   .principle__step {
-    margin-left: 0;
-    margin-right: 0;
+    grid-row: 2;
+    margin: 0;
+  }
+  .principle__step:nth-child(2) {
+    /*1ère étape*/
+    grid-column: 1;
+  }
+  .principle__step:nth-child(3) {
+    /*2ème étape*/
+    grid-column: 2;
+    justify-self: center;
+  }
+  .principle__step:nth-child(4) {
+    /*3ème étape*/
+    grid-column: 3;
+    justify-self: right;
+    transform: translateX(0);
   }
 }
 
@@ -370,7 +419,7 @@ button {
 }
 .foods__card {
   width: 100%;
-  height: calc(0.75 * 90vw);
+  height: calc( 0.75 * 90vw );
   /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
   border-radius: 4vw;
   overflow: hidden;
@@ -406,8 +455,8 @@ button {
 }
 .foods__card__new {
   position: absolute;
-  right: 3vw;
-  top: 3vw;
+  right: 3%;
+  top: 4%;
   background-color: #99E2D0;
   font-size: 0.96rem;
   padding: 0.24rem 0.96rem;
@@ -421,8 +470,18 @@ button {
     /*On passe sur 2 colonnes*/
     width: 47.5%;
     /*laisse une marge au milieu de ~5%*/
-    height: calc(0.75 * 42.5vw);
+    height: calc( 0.75 * 42.5vw );
     /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
+    border-radius: 2vw;
+  }
+}
+@media only screen and (min-width: 800px) and (min-width: 1280px) {
+  .foods__card {
+    /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
+    height: 408px;
+    border-radius: 25.6px;
+    margin: 32px 0;
+    /*quasi la même que la marge horizontale*/
   }
 }
 
