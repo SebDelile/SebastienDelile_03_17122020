@@ -12,6 +12,10 @@ body {
 
 body>*{
     padding: 0 $main-padding;
+    @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+        /*à partir d'un certain point on arrête d'étirer et on fixe la largeur du contenu*/
+        padding: 0 calc(1/2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)} + 100% - #{map-get($breakpoint-orga, maximum-width)}));
+    }
 }
 
 a{

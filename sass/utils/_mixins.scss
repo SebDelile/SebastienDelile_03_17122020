@@ -1,11 +1,1 @@
-@mixin shadow($param) {
-    @if ($param == "button") {
-        box-shadow: 0 0.2 * map-get($font-size, button) 0.6 * map-get($font-size, button) rgba(64,64,64, 0.5)
-    }; 
-    @if ($param == "list") {
-        box-shadow: 0 0.15 * map-get($font-size, h3) 0.6 * map-get($font-size, h3) rgba(64,64,64, 0.25)
-    };
-    @if ($param == "card") {
-        box-shadow: 0 0.2 * map-get($font-size, h3) 0.4 * map-get($font-size, h3) rgba(64,64,64, 0.25)
-    };
-}
+
