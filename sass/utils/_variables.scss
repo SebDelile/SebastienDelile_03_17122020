@@ -1,17 +1,27 @@
 $main-padding: 5%;
 $section-padding-vertical: 2rem; 
 
-$font-size: (
-    h1:1.8rem,
-    h2:1.8rem,
-    h3:1.3rem,
-    h4:1.25rem,
-    p:1.2rem,
-    input:1.2rem,
-    label: 1.9rem,
-    button:1.2rem,
-    footer i: 1rem,
-    footer a: 1rem
+$size: (
+    button-main:1.2rem,
+    like: 1.9rem,
+    footer__logo: 1.3rem,
+    footer__links: 1rem,
+    header__goback: 1.2rem,
+
+    search: 1.2rem,
+    presentation__title: 1.8rem,
+    presentation__subtitle: 1.3rem,
+    section__title: 1.8rem,
+    principle__step: 1.25rem,
+    foods__card__title: 1.25rem,
+    foods__card__place: 1.2rem,
+    new: 1.2rem,
+
+    banner__title:1.8rem,
+    course__title: 1.1rem,
+    dish__title: 1.3rem,
+    dish__subtitle: 1.2rem,
+    dish__price: 1.2rem,
 );
 
 
@@ -31,9 +41,9 @@ $color: (
 $breakpoint: (
     footer: 600px,
     foods-list: 800px,
-    principle1: 20 * map-get($font-size, h4),
-    principle2: 62 * map-get($font-size, h4),
-    presentation: 40 * map-get($font-size, h3) + 16 * map-get($font-size, button),
+    principle1: 20 * map-get($size, principle__step),
+    principle2: 62 * map-get($size, principle__step),
+    presentation: 40 * map-get($size, presentation__subtitle) + 16 * map-get($size, button-main),
     maximum-width: 1280px,
     banner: 800px,
     menu1: 650px,
