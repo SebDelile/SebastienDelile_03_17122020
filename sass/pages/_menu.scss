@@ -5,16 +5,19 @@
   height: 66.6vw; /*ratio de l'image à ~2/3*/
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding-bottom: (3 - 1) * map-get($font-size, h1); /*identique à la taille de legend - border radius*/
   background-color: map-get($color, background-main);
   &__img {
     width: 100%;
     object-fit: cover;
-    &--centered {
-      justify-self: center;
+    &--bottom {
+      align-self: flex-end;
+    }
+    &--top {
+      align-self: flex-start;
     }
   }
   &__legend {

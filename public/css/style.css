@@ -503,8 +503,8 @@ button {
   /*ratio de l'image à ~2/3*/
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding-bottom: 3.6rem;
   /*identique à la taille de legend - border radius*/
@@ -514,8 +514,11 @@ button {
   width: 100%;
   object-fit: cover;
 }
-.banner__img--centered {
-  justify-self: center;
+.banner__img--bottom {
+  align-self: flex-end;
+}
+.banner__img--top {
+  align-self: flex-start;
 }
 .banner__legend {
   display: flex;
