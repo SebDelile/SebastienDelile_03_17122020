@@ -8,14 +8,14 @@
     }
     &__logo {
         font-weight: normal;
-        margin-bottom: 0.5 * map-get($font-size, h3);
+        margin-bottom: 0.5 * map-get($size, footer__logo);
     }
     &__links {
         width: 100%;
-        line-height: 1.5 * map-get($font-size, footer a);
+        line-height: 1.5 * map-get($size, footer__links);
         vertical-align: middle;
         &__icon {
-            width : 1.5 * map-get($font-size, footer i );
+            width : 1.5 * map-get($size, footer__links);
         }
     }
     

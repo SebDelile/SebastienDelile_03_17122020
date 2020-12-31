@@ -10,7 +10,3 @@ input, button {
     font: inherit;
 }
 
-@each $key, $value in $font-size {
-    #{$key} {font-size:$value;}
-}
-
