@@ -93,6 +93,7 @@ button {
   color: white;
   background: linear-gradient(330deg, #9356DC, #FF79DA);
   border-radius: 1.92rem;
+  cursor: pointer;
   box-shadow: 0 0.24rem 0.72rem rgba(64, 64, 64, 0.5);
 }
 
@@ -183,6 +184,9 @@ button {
   top: 50%;
   transform: translateY(-50%);
   /*alignement vertical*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 1.8rem;
   height: 1.8rem;
   color: #353535;
@@ -629,6 +633,7 @@ button {
   background-color: white;
   border-radius: 0.78rem;
   overflow: hidden;
+  cursor: pointer;
 }
 .dish__checkbox {
   display: none;

@@ -5,17 +5,14 @@ button {
 }
 
 .button-main {
-  margin: auto;  
+  margin: auto;
   padding: map-get($font-size, button);
   margin-bottom: 1.5 * map-get($font-size, button);
   display: block;
   color: white;
-  background: linear-gradient(
-    330deg,
-    map-get($color, primary),
-    map-get($color, secondary)
-  );
+  background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
   border-radius: 1.6 * map-get($font-size, button);
+  cursor: pointer;
   @include shadow(button);
 }
 

@@ -118,6 +118,7 @@
   background-color: white;
   border-radius: 0.6 * map-get($font-size, h3);
   overflow: hidden;
+  cursor: pointer;
   &__checkbox {
     display: none;
     &:checked + * {
