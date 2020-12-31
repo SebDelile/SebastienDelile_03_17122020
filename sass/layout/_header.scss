@@ -1,3 +1,5 @@
+@each $breakpoint, $size in $size-generic {
+  @media only screen and (min-width: $breakpoint) {
 .header {
   width: 100%;
   margin-top: 2rem;
@@ -10,6 +12,7 @@
     max-width: 20rem;
   }
   &__goback {
+    font-size: map-get($size, header__goback);
     position: absolute;
     left: map-get($size, header__goback);
     top: 50%;
@@ -20,9 +23,9 @@
     width: 1.5 * map-get($size, header__goback);
     height: 1.5 * map-get($size, header__goback);
     color: map-get($color, dark-text);
-    @media only screen and (min-width: map-get($breakpoint, maximum-width)) {
+    @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
       /*à partir d'un certain point on arrête d'étirer et on fixe la largeur du contenu*/
-      left: calc(#{map-get($size, header__goback)} + 1/2 * (100% - #{map-get($breakpoint, maximum-width)}));
+      left: calc(#{map-get($size, header__goback)} + 1/2 * (100% - #{map-get($breakpoint-orga, maximum-width)}));
   }
   }
-}
+}}}

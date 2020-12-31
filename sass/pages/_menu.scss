@@ -1,3 +1,6 @@
+@each $breakpoint, $size in $size-menu {
+  @media only screen and (min-width: $breakpoint) {
+
 .banner {
   padding: 0;
   position: relative;
@@ -32,12 +35,12 @@
     padding: 0 $main-padding;
     background-color: map-get($color, background-main);
     border-radius: map-get($size, banner__title) map-get($size, banner__title) 0 0;
-    @media only screen and (min-width: map-get($breakpoint, menu1)) {
-        padding: 0 calc(0.05 * #{map-get($breakpoint, menu1)} + 1/2 * (100% - #{map-get($breakpoint, menu1)}));
-        @media only screen and (min-width: map-get($breakpoint, menu2)){
+    @media only screen and (min-width: map-get($breakpoint-orga, menu1)) {
+        padding: 0 calc(0.05 * #{map-get($breakpoint-orga, menu1)} + 1/2 * (100% - #{map-get($breakpoint-orga, menu1)}));
+        @media only screen and (min-width: map-get($breakpoint-orga, menu2)){
             padding: 0 $main-padding;
-            @media only screen and (min-width: map-get($breakpoint, maximum-width)){
-                padding: 0 calc(1/2 * (0.1 * #{map-get($breakpoint, maximum-width)}));
+            @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)){
+                padding: 0 calc(1/2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)}));
             } 
         } 
     }
@@ -47,17 +50,16 @@
     font-weight: normal;
   }
   &__like {
-    font-size: map-get($size, like);
-    margin: 0 0.5 * map-get($size, like);
+    margin: 0 0.5 * map-get($size, banner__title);
   }
-  @media only screen and (min-width: map-get($breakpoint, banner)) {
-    height: 0.666 * map-get($breakpoint, banner);
+  @media only screen and (min-width: map-get($breakpoint-orga, banner)) {
+    height: 0.666 * map-get($breakpoint-orga, banner);
   }
-  @media only screen and (min-width: map-get($breakpoint, maximum-width)) {
-    padding-left: calc(1 / 2 * (100% - #{map-get($breakpoint, maximum-width)}));
-    padding-right: calc(1 / 2 * (100% - #{map-get($breakpoint, maximum-width)}));
+  @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+    padding-left: calc(1 / 2 * (100% - #{map-get($breakpoint-orga, maximum-width)}));
+    padding-right: calc(1 / 2 * (100% - #{map-get($breakpoint-orga, maximum-width)}));
     &__legend {
-      width: map-get($breakpoint, maximum-width);
+      width: map-get($breakpoint-orga, maximum-width);
       border-radius: unset;
     }
   }
@@ -70,13 +72,14 @@
     display: none;
   }
   &__order {
-    margin-top: map-get($size, button-main);
-    padding: map-get($size, button-main) 3 * map-get($size, button-main);
+    margin-top: 1/2 * $section-padding-vertical;
+    padding-left: 8%;
+    padding-right: 8%;
   }
-  @media only screen and (min-width: map-get($breakpoint, menu1)) {
-    padding-left: calc(1/2 * (100% - #{map-get($breakpoint, menu1)}));
-    padding-right: calc(1/2 * (100% - #{map-get($breakpoint, menu1)}));
-    @media only screen and (min-width: map-get($breakpoint, menu2)) {
+  @media only screen and (min-width: map-get($breakpoint-orga, menu1)) {
+    padding-left: calc(1/2 * (100% - #{map-get($breakpoint-orga, menu1)}));
+    padding-right: calc(1/2 * (100% - #{map-get($breakpoint-orga, menu1)}));
+    @media only screen and (min-width: map-get($breakpoint-orga, menu2)) {
       display: grid;
       grid-template-columns: 32% 32% 32%;
       grid-template-rows: auto;
@@ -91,10 +94,12 @@
       &__order {
         grid-row: 2;
         grid-column: 1 / span 3;
+        padding-left: 5%;
+        padding-right: 5%;
       }
-      @media only screen and (min-width: map-get($breakpoint, maximum-width)) {
-        padding-left: calc(1 / 2 * (0.1 * #{map-get($breakpoint, maximum-width)} + 100% - #{map-get($breakpoint, maximum-width)}));
-        padding-right: calc(1 / 2 * (0.1 * #{map-get($breakpoint, maximum-width)} + 100% - #{map-get($breakpoint, maximum-width)}));
+      @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+        padding-left: calc(1 / 2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)} + 100% - #{map-get($breakpoint-orga, maximum-width)}));
+        padding-right: calc(1 / 2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)} + 100% - #{map-get($breakpoint-orga, maximum-width)}));
       }
     }
   }
@@ -126,7 +131,7 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  @include shadow(dish__title);
+  box-shadow: 0 0.15 * map-get($size, dish__title) 0.6 * map-get($size, dish__title) rgba(64,64,64, 0.25);
   &__label {
     position: absolute;
     width: 100%;
@@ -136,7 +141,7 @@
   &__checkbox {
     display: none;
     &:checked + * {
-      width: 4rem; /*Mettre une animation glissement latéral*/
+      width: 3.5 * map-get($size, dish__title); /*Mettre une animation glissement latéral*/
     }
   }
   &__selected {
@@ -150,7 +155,7 @@
     flex: none;
     i {
       color: white;
-      font-size: map-get($size, dish__title);
+      font-size: 1.2 * map-get($size, dish__title);
     }
   }
   &__text {
@@ -166,12 +171,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    &__title {
-      font-size: map-get($size, dish__title);
-    }
-    &__subtitle {
-      font-size: map-get($size, dish__subtitle);
-    }
+  }
+  &__title {
+    font-size: map-get($size, dish__title);
+  }
+  &__subtitle {
+    font-size: map-get($size, dish__subtitle);
   }
   &__price {
     font-size: map-get($size, dish__price);
@@ -181,3 +186,4 @@
     flex: none;
   }
 }
+  }}

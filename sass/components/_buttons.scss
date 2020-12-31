@@ -1,3 +1,5 @@
+@each $breakpoint, $size in $size-generic {
+  @media only screen and (min-width: $breakpoint) {
 button {
   width: fit-content;
   border: none;
@@ -14,7 +16,7 @@ button {
   background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
   border-radius: 1.6 * map-get($size, button-main);
   cursor: pointer;
-  @include shadow(button);
+  box-shadow: 0 0.2 * map-get($size, button-main) 0.6 * map-get($size, button-main) rgba(64,64,64, 0.5);
 }
 
 .like {
@@ -47,3 +49,4 @@ button {
     }
   }
 }
+  }}

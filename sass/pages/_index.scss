@@ -1,3 +1,6 @@
+@each $breakpoint, $size in $size-index {
+  @media only screen and (min-width: $breakpoint) {
+
 .search {
   font-size: map-get($size, search);
   padding: 0; /*pleine page donc suppression du padding général*/
@@ -49,7 +52,7 @@
   }
   &__button {
   }
-  @media only screen and (min-width: map-get($breakpoint, presentation)) {
+  @media only screen and (min-width: map-get($breakpoint-orga, presentation)) {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -93,7 +96,7 @@
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    @include shadow(principle__step);
+    box-shadow: 0 0.15 * map-get($size, principle__step) 0.6 * map-get($size, principle__step) rgba(64,64,64, 0.25);
     &:nth-child(2) {
       .principle__logo {
         font-size: 1.25 * map-get($size, principle__step);
@@ -107,7 +110,7 @@
       }
     }
 
-    @media only screen and (min-width: map-get($breakpoint, principle1)) {
+    @media only screen and (min-width: map-get($breakpoint-orga, principle1)) {
       /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
       width: (18 - 2/3) * map-get($size, principle__step);
       margin-left: auto;
@@ -139,7 +142,7 @@
   }
   &__text {
   }
-  @media only screen and (min-width: map-get($breakpoint, principle2)) {
+  @media only screen and (min-width: map-get($breakpoint-orga, principle2)) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -177,7 +180,7 @@
   padding-top: $section-padding-vertical;
   padding-bottom: $section-padding-vertical;
   &__title {
-    font-size: map-get($size, step);
+    font-size: map-get($size, section__title);
     margin-bottom: 0.5 * map-get($size, section__title);
   }
   &__list {
@@ -185,7 +188,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    @media only screen and (min-width: map-get($breakpoint, foods-list)) {
+    @media only screen and (min-width: map-get($breakpoint-orga, foods-list)) {
       /*On passe sur 2 colonnes*/
       flex-direction: row;
       flex-wrap: wrap;
@@ -203,7 +206,7 @@
     justify-content: flex-start;
     align-items: center;
     margin: 2.5vw 0; /*quasi la même que la marge horizontale*/
-    @include shadow(foods__card__title);
+    box-shadow: 0 0.2 * map-get($size, foods__card__title) 0.4 * map-get($size, foods__card__title) rgba(64,64,64, 0.25);
     &__img {
       object-fit: cover;
       height: 70%;
@@ -232,7 +235,6 @@
       font-size: map-get($size, foods__card__place);
     }
     &__like {
-      font-size: map-get($size, like);
       margin: 0 0.5 * map-get($size, foods__card__title);
     }
     &__new {
@@ -248,17 +250,18 @@
     &:nth-child(4) .foods__card__new {
       display: none;
     }
-    @media only screen and (min-width: map-get($breakpoint, foods-list)) {
+    @media only screen and (min-width: map-get($breakpoint-orga, foods-list)) {
       /*On passe sur 2 colonnes*/
       width: 47.5%; /*laisse une marge au milieu de ~5%*/
       height: calc(0.75 * 42.5vw); /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
       border-radius: 2vw;
-      @media only screen and (min-width: map-get($breakpoint, maximum-width)) {
+      @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
         /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
-        height: 0.75 * 0.425 * map-get($breakpoint, maximum-width);
-        border-radius: 0.02 * map-get($breakpoint, maximum-width);
-        margin: 0.025 * map-get($breakpoint, maximum-width) 0; /*quasi la même que la marge horizontale*/
+        height: 0.75 * 0.425 * map-get($breakpoint-orga, maximum-width);
+        border-radius: 0.02 * map-get($breakpoint-orga, maximum-width);
+        margin: 0.025 * map-get($breakpoint-orga, maximum-width) 0; /*quasi la même que la marge horizontale*/
       }
     }
   }
 }
+  }}
