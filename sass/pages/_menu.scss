@@ -119,6 +119,13 @@
   border-radius: 0.6 * map-get($font-size, h3);
   overflow: hidden;
   cursor: pointer;
+  position: relative;
+  &__label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
   &__checkbox {
     display: none;
     &:checked + * {

@@ -634,6 +634,13 @@ button {
   border-radius: 0.78rem;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
+}
+.dish__label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
 }
 .dish__checkbox {
   display: none;
