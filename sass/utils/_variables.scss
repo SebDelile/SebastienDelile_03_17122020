@@ -5,14 +5,12 @@ $breakpoint-orga: (
     footer: 600px,
     maximum-width: 1280px,
 
-    principle1: 25rem, /*attention = 20 * size(principle__step)*/
-    principle2: 77.5rem, /*attention = 62 * size(principle__step)*/
+    principle: 25rem, /*attention = 20 * size(principle__step)*/
     presentation: 71.2rem, /*attention = 40 * size(presentation__subtitle) + 16 * size(button-main)*/
     foods-list: 720px,
     
     banner: 800px,
-    menu1: 800px,
-    menu2: 1200px
+    menu: 800px,
 );
 
 $size-generic: ( /*chaque sous map est un breakpoint*/
@@ -73,15 +71,15 @@ $size-index: ( /*chaque sous map est un breakpoint*/
         foods__card__place: 1.2rem,
         new: 1.2rem
     ),
-    map-get($breakpoint-orga, principle2): (
+    1000px: (
         search: 1.2rem,
         presentation__title: 1.8rem,
         presentation__subtitle: 1.3rem,
         section__title: 1.8rem,
-        principle__step: 1.25rem,
-        foods__card__title: 1.8rem,
-        foods__card__place: 1.7rem,
-        new: 1.7rem
+        principle__step: 1.55rem,
+        foods__card__title: 1.6rem,
+        foods__card__place: 1.5rem,
+        new: 1.2rem
     ),
     map-get($breakpoint-orga, maximum-width): (
         search: 1.2rem,
@@ -117,7 +115,7 @@ $size-menu: ( /*chaque sous map est un breakpoint*/
         dish__subtitle: 1.6rem,
         dish__price: 1.6rem
     ),
-    map-get($breakpoint-orga, menu2): (
+    map-get($breakpoint-orga, maximum-width): (
         banner__title:2.5rem,
         course__title: 1.1rem,
         dish__title: 1.3rem,

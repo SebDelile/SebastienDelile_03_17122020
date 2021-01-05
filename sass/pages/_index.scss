@@ -110,7 +110,7 @@
       }
     }
 
-    @media only screen and (min-width: map-get($breakpoint-orga, principle1)) {
+    @media only screen and (min-width: map-get($breakpoint-orga, principle)) {
       /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
       width: (18 - 2/3) * map-get($size, principle__step);
       margin-left: auto;
@@ -142,7 +142,7 @@
   }
   &__text {
   }
-  @media only screen and (min-width: map-get($breakpoint-orga, principle2)) {
+  @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
