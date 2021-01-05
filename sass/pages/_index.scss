@@ -96,7 +96,7 @@
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    box-shadow: 0 0.15 * map-get($size, principle__step) 0.6 * map-get($size, principle__step) rgba(64,64,64, 0.25);
+    @include shadow (map-get($size, principle__step));
     &:nth-child(2) {
       .principle__logo {
         font-size: 1.25 * map-get($size, principle__step);
@@ -206,7 +206,13 @@
     justify-content: flex-start;
     align-items: center;
     margin: 2.5vw 0; /*quasi la même que la marge horizontale*/
-    box-shadow: 0 0.2 * map-get($size, foods__card__title) 0.4 * map-get($size, foods__card__title) rgba(64,64,64, 0.25);
+    @include shadow (map-get($size, foods__card__title));
+    transform: scale(1);
+    transition: all 400ms;
+    &:hover {
+      transform: scale(1.02);
+      @include shadow (map-get($size, foods__card__title), 0.5);
+    }
     &__img {
       object-fit: cover;
       height: 70%;

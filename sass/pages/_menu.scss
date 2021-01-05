@@ -121,14 +121,15 @@
       background-color: white;
       border-radius: 0.6 * map-get($size, dish__title);
       overflow: hidden;
-      cursor: pointer;
       position: relative;
-      box-shadow: 0 0.15 * map-get($size, dish__title) 0.6 * map-get($size, dish__title) rgba(64, 64, 64, 0.25);
+      @include shadow(map-get($size, dish__title));     
       &__label {
         position: absolute;
         width: 100%;
         height: 100%;
-        z-index: 3;
+        
+        cursor: pointer;
+        border-radius: 0.6 * map-get($size, dish__title);
       }
       &__checkbox {
         display: none;

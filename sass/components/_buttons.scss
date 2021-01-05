@@ -1,52 +1,59 @@
 @each $breakpoint, $size in $size-generic {
   @media only screen and (min-width: $breakpoint) {
-button {
-  width: fit-content;
-  border: none;
-  background-color: unset;
-}
+    button {
+      width: fit-content;
+      border: none;
+      background-color: unset;
+    }
 
-.button-main {
-  font-size: map-get($size, button-main);
-  margin: auto;
-  padding: map-get($size, button-main);
-  margin-bottom: 1.5 * map-get($size, button-main);
-  display: block;
-  color: white;
-  background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
-  border-radius: 1.6 * map-get($size, button-main);
-  cursor: pointer;
-  box-shadow: 0 0.2 * map-get($size, button-main) 0.6 * map-get($size, button-main) rgba(64,64,64, 0.5);
-}
+    .button-main {
+      font-size: map-get($size, button-main);
+      margin: auto;
+      padding: map-get($size, button-main);
+      margin-bottom: 1.5 * map-get($size, button-main);
+      display: block;
+      color: white;
+      background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
+      border-radius: 1.6 * map-get($size, button-main);
+      cursor: pointer;
+      transition: all 400ms;
+      transform: scale(1);
+      @include shadow(map-get($size, button-main), 0.5);
+      &:hover {
+        transform: scale(1.1);
+        @include shadow(1.5*map-get($size, button-main), 0.75);
+      }
+    }
 
-.like {
-  font-size: map-get($size, like);
-  position: relative;
-  width: 1.1 * map-get($size, like); /*1.1 pour être un poil plus grand que l'icône*/
-  height: 1.1 * map-get($size, like);
-  .fas {
-    display: none; /*display à remplacer par animation opacity*/
-  }
-  input {
-    display: none;
-    &:checked + .fas {
-      display: inline-block; /*display à remplacer par animation opacity*/
-      + .far {
+    .like {
+      font-size: map-get($size, like);
+      position: relative;
+      width: 1.1 * map-get($size, like); /*1.1 pour être un poil plus grand que l'icône*/
+      height: 1.1 * map-get($size, like);
+      .fas {
         display: none; /*display à remplacer par animation opacity*/
+      }
+      input {
+        display: none;
+        &:checked + .fas {
+          display: inline-block; /*display à remplacer par animation opacity*/
+          + .far {
+            display: none; /*display à remplacer par animation opacity*/
+          }
+        }
+      }
+      .fa-heart {
+        color: map-get($color, primary);
+        font-size: inherit;
+        position: absolute;
+        &.fas {
+          color: map-get($color, primary);
+        }
+        &.far {
+          color: black;
+          font-weight: lighter;
+        }
       }
     }
   }
-  .fa-heart {
-    color: map-get($color, primary);
-    font-size: inherit;
-    position: absolute;
-    &.fas {
-      color: map-get($color, primary);
-    }
-    &.far {
-      color: black;
-      font-weight: lighter;
-    }
-  }
 }
-  }}
