@@ -71,32 +71,48 @@ input, button {
     width: 2.09rem;
     /*1.1 pour être un poil plus grand que l'icône*/
     height: 2.09rem;
+    overflow: hidden;
+    cursor: pointer;
   }
-  .like .fas {
-    display: none;
-    /*display à remplacer par animation opacity*/
+  .like__mask {
+    position: absolute;
+    width: 100%;
+    height: 125%;
+    z-index: 2;
   }
   .like input {
     display: none;
   }
-  .like input:checked + .fas {
-    display: inline-block;
-    /*display à remplacer par animation opacity*/
+  .like input:checked + .far {
+    background: linear-gradient(to bottom, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .like input:checked + .fas + .far {
-    display: none;
-    /*display à remplacer par animation opacity*/
+  .like input:checked + .far + .like__mask {
+    transform: translateY(-100%);
+    transition: transform 1s;
+    /*animation seulement à l'aller*/
   }
   .like .fa-heart {
-    color: #9356DC;
+    width: 100%;
+    /*Sinon il peut manquer une rangée de pixel à gauche ou droite*/
+    color: black;
+    text-align: center;
     font-size: inherit;
     position: absolute;
   }
   .like .fa-heart.fas {
-    color: #9356DC;
+    z-index: 1;
+    background: linear-gradient(to bottom, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .like .fa-heart.far {
-    color: black;
+    z-index: 3;
     font-weight: lighter;
   }
 }
@@ -132,32 +148,48 @@ input, button {
     width: 2.75rem;
     /*1.1 pour être un poil plus grand que l'icône*/
     height: 2.75rem;
+    overflow: hidden;
+    cursor: pointer;
   }
-  .like .fas {
-    display: none;
-    /*display à remplacer par animation opacity*/
+  .like__mask {
+    position: absolute;
+    width: 100%;
+    height: 125%;
+    z-index: 2;
   }
   .like input {
     display: none;
   }
-  .like input:checked + .fas {
-    display: inline-block;
-    /*display à remplacer par animation opacity*/
+  .like input:checked + .far {
+    background: linear-gradient(to bottom, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .like input:checked + .fas + .far {
-    display: none;
-    /*display à remplacer par animation opacity*/
+  .like input:checked + .far + .like__mask {
+    transform: translateY(-100%);
+    transition: transform 1s;
+    /*animation seulement à l'aller*/
   }
   .like .fa-heart {
-    color: #9356DC;
+    width: 100%;
+    /*Sinon il peut manquer une rangée de pixel à gauche ou droite*/
+    color: black;
+    text-align: center;
     font-size: inherit;
     position: absolute;
   }
   .like .fa-heart.fas {
-    color: #9356DC;
+    z-index: 1;
+    background: linear-gradient(to bottom, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .like .fa-heart.far {
-    color: black;
+    z-index: 3;
     font-weight: lighter;
   }
 }
@@ -624,6 +656,9 @@ input, button {
   .foods__card__like {
     margin: 0 0.625rem;
   }
+  .foods__card__like .like__mask {
+    background: linear-gradient(to bottom, white 80%, transparent);
+  }
   .foods__card__new {
     font-size: 0.96rem;
     position: absolute;
@@ -912,6 +947,9 @@ input, button {
   }
   .foods__card__like {
     margin: 0 0.8rem;
+  }
+  .foods__card__like .like__mask {
+    background: linear-gradient(to bottom, white 80%, transparent);
   }
   .foods__card__new {
     font-size: 1.12rem;
@@ -1202,6 +1240,9 @@ input, button {
   .foods__card__like {
     margin: 0 0.9rem;
   }
+  .foods__card__like .like__mask {
+    background: linear-gradient(to bottom, white 80%, transparent);
+  }
   .foods__card__new {
     font-size: 1.36rem;
     position: absolute;
@@ -1490,6 +1531,9 @@ input, button {
   }
   .foods__card__like {
     margin: 0 0.625rem;
+  }
+  .foods__card__like .like__mask {
+    background: linear-gradient(to bottom, white 80%, transparent);
   }
   .foods__card__new {
     font-size: 0.96rem;
@@ -1780,6 +1824,9 @@ input, button {
   .foods__card__like {
     margin: 0 0.8rem;
   }
+  .foods__card__like .like__mask {
+    background: linear-gradient(to bottom, white 80%, transparent);
+  }
   .foods__card__new {
     font-size: 0.96rem;
     position: absolute;
@@ -2069,6 +2116,9 @@ input, button {
   .foods__card__like {
     margin: 0 0.9rem;
   }
+  .foods__card__like .like__mask {
+    background: linear-gradient(to bottom, white 80%, transparent);
+  }
   .foods__card__new {
     font-size: 1.36rem;
     position: absolute;
@@ -2160,6 +2210,9 @@ input, button {
 @media only screen and (min-width: 0) {
   .banner__like {
     margin: 0 0.7rem;
+  }
+  .banner__like .like__mask {
+    background: linear-gradient(to bottom, #F6F6F6 80%, transparent);
   }
 }
 @media only screen and (min-width: 0) and (min-width: 800px) {
@@ -2365,6 +2418,9 @@ input, button {
   .banner__like {
     margin: 0 0.9rem;
   }
+  .banner__like .like__mask {
+    background: linear-gradient(to bottom, #F6F6F6 80%, transparent);
+  }
 }
 @media only screen and (min-width: 450px) and (min-width: 800px) {
   .banner {
@@ -2569,6 +2625,9 @@ input, button {
   .banner__like {
     margin: 0 1.25rem;
   }
+  .banner__like .like__mask {
+    background: linear-gradient(to bottom, #F6F6F6 80%, transparent);
+  }
 }
 @media only screen and (min-width: 600px) and (min-width: 800px) {
   .banner {
@@ -2772,6 +2831,9 @@ input, button {
 @media only screen and (min-width: 1280px) {
   .banner__like {
     margin: 0 1.25rem;
+  }
+  .banner__like .like__mask {
+    background: linear-gradient(to bottom, #F6F6F6 80%, transparent);
   }
 }
 @media only screen and (min-width: 1280px) and (min-width: 800px) {

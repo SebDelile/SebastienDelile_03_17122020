@@ -242,6 +242,9 @@
     }
     &__like {
       margin: 0 0.5 * map-get($size, foods__card__title);
+      .like__mask {
+        background: linear-gradient(to bottom, white 80%, transparent);
+      }
     }
     &__new {
       font-size: 0.8 * map-get($size, new);
