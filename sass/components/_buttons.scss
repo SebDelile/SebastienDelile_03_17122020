@@ -1,74 +1,72 @@
-@each $breakpoint, $size in $size-generic {
-  @media only screen and (min-width: $breakpoint) {
-    button {
-      width: fit-content;
-      border: none;
-      background-color: unset;
-    }
+@include responsive(size-generic, $size-generic) {
+  button {
+    width: fit-content;
+    border: none;
+    background-color: unset;
+  }
 
-    .button-main {
-      font-size: map-get($size, button-main);
-      margin: auto;
-      padding: map-get($size, button-main);
-      margin-bottom: 1.5 * map-get($size, button-main);
-      display: block;
-      color: white;
-      background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
-      border-radius: 1.6 * map-get($size, button-main);
-      cursor: pointer;
-      transition: box-shadow 400ms, background 400ms;
-      @include shadow(map-get($size, button-main), 0.5);
-      &:hover {
-        background: linear-gradient(330deg, lighten(map-get($color, primary),5%), lighten(map-get($color, secondary), 5%));
-        @include shadow(1.5 * map-get($size, button-main), 0.75);
+  .button-main {
+    font-size: map-get($size, button-main);
+    margin: auto;
+    padding: map-get($size, button-main);
+    margin-bottom: 1.5 * map-get($size, button-main);
+    display: block;
+    color: white;
+    background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
+    border-radius: 1.6 * map-get($size, button-main);
+    cursor: pointer;
+    transition: box-shadow 400ms, background 400ms;
+    @include shadow(map-get($size, button-main), 0.5);
+    &:hover {
+      background: linear-gradient(330deg, lighten(map-get($color, primary), 5%), lighten(map-get($color, secondary), 5%));
+      @include shadow(1.5 * map-get($size, button-main), 0.75);
+    }
+  }
+
+  .like {
+    font-size: map-get($size, like);
+    position: relative;
+    width: 1.1 * map-get($size, like); /*1.1 pour être un poil plus grand que l'icône*/
+    height: 1.1 * map-get($size, like);
+    overflow: hidden;
+    cursor: pointer;
+    &__mask {
+      position: absolute;
+      width: 100%;
+      height: 125%;
+      z-index: 2;
+    }
+    input {
+      display: none;
+      &:checked + .far {
+        background: linear-gradient(to bottom, map-get($color, secondary), map-get($color, primary));
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        + .like__mask {
+          transform: translateY(-100%);
+          transition: transform 0.4s; /*animation seulement à l'aller*/
+        }
       }
     }
-
-    .like {
-      font-size: map-get($size, like);
-      position: relative;
-      width: 1.1 * map-get($size, like); /*1.1 pour être un poil plus grand que l'icône*/
-      height: 1.1 * map-get($size, like);
-      overflow: hidden;
-      cursor: pointer;
-      &__mask {
-        position: absolute;
-        width: 100%;
-        height: 125%;
-        z-index: 2;
+    .fa-heart {
+      width: 100%; /*Sinon il peut manquer une rangée de pixel à gauche ou droite*/
+      color: black;
+      text-align: center;
+      font-size: inherit;
+      position: absolute;
+      &.fas {
+        z-index: 1;
+        background: linear-gradient(to bottom, map-get($color, secondary), map-get($color, primary));
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-      input {
-        display: none;
-        &:checked + .far {
-          background: linear-gradient(to bottom, map-get($color, secondary), map-get($color, primary));
-          -webkit-background-clip: text;
-          -moz-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          + .like__mask {
-            transform: translateY(-100%);
-            transition: transform 0.4s; /*animation seulement à l'aller*/
-          }
-        }
-      }
-      .fa-heart {
-        width: 100%; /*Sinon il peut manquer une rangée de pixel à gauche ou droite*/
-        color: black;
-        text-align: center;
-        font-size: inherit;
-        position: absolute;
-        &.fas {
-          z-index: 1;
-          background: linear-gradient(to bottom, map-get($color, secondary), map-get($color, primary));
-          -webkit-background-clip: text;
-          -moz-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        &.far {
-          z-index: 3;
-          font-weight: lighter;
-        }
+      &.far {
+        z-index: 3;
+        font-weight: lighter;
       }
     }
   }

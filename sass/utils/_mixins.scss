@@ -1,3 +1,16 @@
+@mixin responsive($map-name, $map-name-dollar) {
+  $size:()!global;
+  $size: map-merge($size, map-get($size-min-width, $map-name))!global;
+  @content;
+  @each $breakpoint, $map-size in $map-name-dollar {
+    @media only screen and (min-width: $breakpoint) {
+      $size: map-merge($size, map-get($map-name-dollar, $breakpoint))!global;
+      @content;
+    }
+  }
+}
+
+
 @mixin shadow($size, $opacity: 0.25) {
   box-shadow: 0 0.2 * $size 0.6 * $size rgba(64, 64, 64, $opacity);
 }
