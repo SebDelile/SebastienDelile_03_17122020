@@ -47,6 +47,9 @@
       }
       &__like {
         margin: 0 0.5 * map-get($size, banner__title);
+        .like__mask {
+          background: linear-gradient(to bottom, map-get($color, background-main) 80%, transparent);
+        }
       }
       @media only screen and (min-width: map-get($breakpoint-orga, banner)) {
         height: 0.666 * map-get($breakpoint-orga, banner);
