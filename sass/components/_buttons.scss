@@ -16,11 +16,10 @@
       background: linear-gradient(330deg, map-get($color, primary), map-get($color, secondary));
       border-radius: 1.6 * map-get($size, button-main);
       cursor: pointer;
-      transition: all 400ms;
-      transform: scale(1);
+      transition: box-shadow 400ms, background 400ms;
       @include shadow(map-get($size, button-main), 0.5);
       &:hover {
-        transform: scale(1.1);
+        background: linear-gradient(330deg, lighten(map-get($color, primary),5%), lighten(map-get($color, secondary), 5%));
         @include shadow(1.5 * map-get($size, button-main), 0.75);
       }
     }

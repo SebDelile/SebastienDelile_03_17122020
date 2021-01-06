@@ -75,12 +75,11 @@ input, button {
     background: linear-gradient(330deg, #9356DC, #FF79DA);
     border-radius: 1.92rem;
     cursor: pointer;
-    transition: all 400ms;
-    transform: scale(1);
+    transition: box-shadow 400ms, background 400ms;
     box-shadow: 0 0.24rem 0.72rem rgba(64, 64, 64, 0.5);
   }
   .button-main:hover {
-    transform: scale(1.1);
+    background: linear-gradient(330deg, #a16be0, #ff93e1);
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.75);
   }
 
@@ -152,12 +151,11 @@ input, button {
     background: linear-gradient(330deg, #9356DC, #FF79DA);
     border-radius: 2.4rem;
     cursor: pointer;
-    transition: all 400ms;
-    transform: scale(1);
+    transition: box-shadow 400ms, background 400ms;
     box-shadow: 0 0.3rem 0.9rem rgba(64, 64, 64, 0.5);
   }
   .button-main:hover {
-    transform: scale(1.1);
+    background: linear-gradient(330deg, #a16be0, #ff93e1);
     box-shadow: 0 0.45rem 1.35rem rgba(64, 64, 64, 0.75);
   }
 
