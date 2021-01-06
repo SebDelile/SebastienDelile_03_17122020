@@ -141,10 +141,10 @@
         display: none;
         &:checked + .dish__selected {
           width: 3.5 * map-get($size, dish__title);
-          transition: all 1s; /*transition pour apparition de la boite*/
+          transition: all 0.4s; /*transition pour apparition de la boite*/
           i {
             transform: translate(-100%, -50%) rotate(1turn); /*centré dans la box*/
-            animation: selected-icon-ON 1s;
+            animation: selected-icon-ON 0.4s;
           }
         }
       }
@@ -160,7 +160,7 @@
         position: relative;
         overflow: hidden;
         transform-origin: right;
-        transition: all 0.6s linear; /*transition pour la fermeture de la boite*/
+        transition: all 0.3s linear; /*transition pour la fermeture de la boite*/
         i {
           color: white;
           font-size: 1.2 * map-get($size, dish__title);
@@ -168,7 +168,7 @@
           top: 50%;
           right: 0;
           transform: translate(100%, -50%); /*centrage vertical + shift à droite hors champ*/
-          animation: selected-icon-OFF 0.4s linear;
+          animation: selected-icon-OFF 0.2s linear;
         }
       }
       &__text {
