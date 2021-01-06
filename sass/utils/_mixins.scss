@@ -1,3 +1,21 @@
-@mixin shadow ($size, $opacity: 0.25) {
-    box-shadow: 0 0.2*$size 0.6*$size rgba(64, 64, 64, $opacity);
+@mixin shadow($size, $opacity: 0.25) {
+  box-shadow: 0 0.2 * $size 0.6 * $size rgba(64, 64, 64, $opacity);
+}
+
+@mixin dish-appearence {
+  $delay: 0.1s;
+  $increment: 0;
+  /*$course : entrée plat dessert, attention au H2*/
+  /*$dish : titre, spacer puis jusqu'à 4 plats*/
+  @for $course from 2 through 4 {
+    @for $dish from 1 through 6 {
+      .course:nth-child(#{$course}) > *:nth-child(#{$dish}) {
+        animation: dish-appearence 0.4s $increment * $delay both;
+      }
+      $increment: $increment + 1;
+    }
+  }
+  .menu__order {
+    animation: dish-appearence 0.4s $increment * $delay both;
+  }
 }

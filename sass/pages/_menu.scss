@@ -36,9 +36,9 @@
         border-radius: map-get($size, banner__title) map-get($size, banner__title) 0 0;
         @media only screen and (min-width: map-get($breakpoint-orga, menu)) {
           padding: 0 calc(0.05 * #{map-get($breakpoint-orga, menu)} + 1 / 2 * (100% - #{map-get($breakpoint-orga, menu)}));
-            @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
-              padding: 0 calc(1 / 2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)}));
-            }
+          @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+            padding: 0 calc(1 / 2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)}));
+          }
         }
       }
       &__title {
@@ -113,6 +113,9 @@
         width: 2.5 * map-get($size, course__title);
         background-color: map-get($color, tertiary);
       }
+      > * {
+        position: relative; /*pour l'animation d'entrée*/
+      }
     }
     .dish {
       margin: 0.5 * map-get($size, dish__title) 0;
@@ -125,12 +128,12 @@
       border-radius: 0.6 * map-get($size, dish__title);
       overflow: hidden;
       position: relative;
-      @include shadow(map-get($size, dish__title));     
+      @include shadow(map-get($size, dish__title));
       &__label {
         position: absolute;
         width: 100%;
         height: 100%;
-        
+
         cursor: pointer;
         border-radius: 0.6 * map-get($size, dish__title);
       }
@@ -138,9 +141,9 @@
         display: none;
         &:checked + .dish__selected {
           width: 3.5 * map-get($size, dish__title);
-          transition : all 1s; /*transition pour apparition de la boite*/
+          transition: all 1s; /*transition pour apparition de la boite*/
           i {
-            transform: translate(-100%,-50%) rotate(1turn); /*centré dans la box*/
+            transform: translate(-100%, -50%) rotate(1turn); /*centré dans la box*/
             animation: selected-icon-ON 1s;
           }
         }
@@ -155,16 +158,16 @@
         align-items: center;
         flex: none;
         position: relative;
-        overflow: hidden; 
+        overflow: hidden;
         transform-origin: right;
-        transition : all 0.6s linear; /*transition pour la fermeture de la boite*/
+        transition: all 0.6s linear; /*transition pour la fermeture de la boite*/
         i {
           color: white;
           font-size: 1.2 * map-get($size, dish__title);
           position: absolute;
-          top : 50%;
+          top: 50%;
           right: 0;
-          transform: translate(100%,-50%); /*centrage vertical + shift à droite hors champ*/
+          transform: translate(100%, -50%); /*centrage vertical + shift à droite hors champ*/
           animation: selected-icon-OFF 0.4s linear;
         }
       }
@@ -198,3 +201,4 @@
     }
   }
 }
+@include dish-appearence;
