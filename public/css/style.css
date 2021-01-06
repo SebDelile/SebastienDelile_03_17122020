@@ -1,5 +1,24 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+@keyframes selected-icon-ON {
+  from {
+    transform: translate(100%, -50%);
+    /*centrage vertical + shift à droite hors champ*/
+  }
+  to {
+    transform: translate(-100%, -50%) rotate(1turn);
+    /*centré dans la box*/
+  }
+}
+@keyframes selected-icon-OFF {
+  from {
+    transform: translate(-100%, -50%);
+  }
+  to {
+    transform: translate(100%, -50%);
+    /*pas d'effet de rotation*/
+  }
+}
 *,
 *::after,
 *::before {
@@ -2312,23 +2331,41 @@ input, button {
   .dish__checkbox {
     display: none;
   }
-  .dish__checkbox:checked + * {
+  .dish__checkbox:checked + .dish__selected {
     width: 3.85rem;
-    /*Mettre une animation glissement latéral*/
+    transition: all 1s;
+    /*transition pour apparition de la boite*/
+  }
+  .dish__checkbox:checked + .dish__selected i {
+    transform: translate(-100%, -50%) rotate(1turn);
+    /*centré dans la box*/
+    animation: selected-icon-ON 1s;
   }
   .dish__selected {
     order: 5;
-    height: 3.85rem;
+    height: 100%;
     width: 0;
+    /*taille initiale*/
     background-color: #99E2D0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: none;
+    position: relative;
+    overflow: hidden;
+    transform-origin: right;
+    transition: all 0.6s linear;
+    /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
     color: white;
     font-size: 1.32rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    /*centrage vertical + shift à droite hors champ*/
+    animation: selected-icon-OFF 0.4s linear;
   }
   .dish__text {
     padding: 0.55rem 3.3333333333%;
@@ -2519,23 +2556,41 @@ input, button {
   .dish__checkbox {
     display: none;
   }
-  .dish__checkbox:checked + * {
+  .dish__checkbox:checked + .dish__selected {
     width: 4.55rem;
-    /*Mettre une animation glissement latéral*/
+    transition: all 1s;
+    /*transition pour apparition de la boite*/
+  }
+  .dish__checkbox:checked + .dish__selected i {
+    transform: translate(-100%, -50%) rotate(1turn);
+    /*centré dans la box*/
+    animation: selected-icon-ON 1s;
   }
   .dish__selected {
     order: 5;
-    height: 4.55rem;
+    height: 100%;
     width: 0;
+    /*taille initiale*/
     background-color: #99E2D0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: none;
+    position: relative;
+    overflow: hidden;
+    transform-origin: right;
+    transition: all 0.6s linear;
+    /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
     color: white;
     font-size: 1.56rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    /*centrage vertical + shift à droite hors champ*/
+    animation: selected-icon-OFF 0.4s linear;
   }
   .dish__text {
     padding: 0.65rem 3.3333333333%;
@@ -2726,23 +2781,41 @@ input, button {
   .dish__checkbox {
     display: none;
   }
-  .dish__checkbox:checked + * {
+  .dish__checkbox:checked + .dish__selected {
     width: 6.125rem;
-    /*Mettre une animation glissement latéral*/
+    transition: all 1s;
+    /*transition pour apparition de la boite*/
+  }
+  .dish__checkbox:checked + .dish__selected i {
+    transform: translate(-100%, -50%) rotate(1turn);
+    /*centré dans la box*/
+    animation: selected-icon-ON 1s;
   }
   .dish__selected {
     order: 5;
-    height: 6.125rem;
+    height: 100%;
     width: 0;
+    /*taille initiale*/
     background-color: #99E2D0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: none;
+    position: relative;
+    overflow: hidden;
+    transform-origin: right;
+    transition: all 0.6s linear;
+    /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
     color: white;
     font-size: 2.1rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    /*centrage vertical + shift à droite hors champ*/
+    animation: selected-icon-OFF 0.4s linear;
   }
   .dish__text {
     padding: 0.875rem 3.3333333333%;
@@ -2933,23 +3006,41 @@ input, button {
   .dish__checkbox {
     display: none;
   }
-  .dish__checkbox:checked + * {
+  .dish__checkbox:checked + .dish__selected {
     width: 4.55rem;
-    /*Mettre une animation glissement latéral*/
+    transition: all 1s;
+    /*transition pour apparition de la boite*/
+  }
+  .dish__checkbox:checked + .dish__selected i {
+    transform: translate(-100%, -50%) rotate(1turn);
+    /*centré dans la box*/
+    animation: selected-icon-ON 1s;
   }
   .dish__selected {
     order: 5;
-    height: 4.55rem;
+    height: 100%;
     width: 0;
+    /*taille initiale*/
     background-color: #99E2D0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: none;
+    position: relative;
+    overflow: hidden;
+    transform-origin: right;
+    transition: all 0.6s linear;
+    /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
     color: white;
     font-size: 1.56rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    /*centrage vertical + shift à droite hors champ*/
+    animation: selected-icon-OFF 0.4s linear;
   }
   .dish__text {
     padding: 0.65rem 3.3333333333%;

@@ -1,0 +1,16 @@
+@keyframes selected-icon-ON {
+    from {
+        transform: translate(100%,-50%); /*centrage vertical + shift à droite hors champ*/
+    }
+    to {
+        transform: translate(-100%,-50%) rotate(1turn); /*centré dans la box*/
+    }
+}
+@keyframes selected-icon-OFF {
+    from {
+        transform: translate(-100%,-50%);
+    }
+    to {
+        transform: translate(100%,-50%); /*pas d'effet de rotation*/
+    }
+}
