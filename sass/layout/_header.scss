@@ -1,8 +1,8 @@
 @include responsive($size-generic) {
   .header {
     width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    padding-top: $section-padding-vertical;
+    padding-bottom: 0.5 * $section-padding-vertical;
     text-align: center;
     position: relative;
     &__logo {

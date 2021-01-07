@@ -93,9 +93,12 @@
 
 body {
   box-sizing: border-box;
+  background-color: #353535;
+  /*utile que sur grand écran qui peut afficher plus que la hauteur du site*/
 }
 
 body > * {
+  background-color: white;
   padding: 0 5%;
 }
 @media only screen and (min-width: 1280px) {
@@ -323,8 +326,8 @@ button {
 /*rien*/
 .header {
   width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   text-align: center;
   position: relative;
 }
@@ -365,8 +368,8 @@ button {
 @media only screen and (min-width: 600px) {
   .header {
     width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     text-align: center;
     position: relative;
   }
