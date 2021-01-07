@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*attention le 0.05 lié à $main-padding*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
 @keyframes selected-icon-ON {
   from {
@@ -104,7 +105,7 @@ body > * {
 @media only screen and (min-width: 1280px) {
   body > * {
     /*à partir d'un certain point on arrête d'étirer et on fixe la largeur du contenu*/
-    padding: 0 calc(1/2 * (0.1 * 1280px + 100% - 1280px));
+    padding: 0 calc(1 / 2 * (100% - 1280px + 2 * 64px));
   }
 }
 
@@ -2285,7 +2286,7 @@ button {
 }
 @media only screen and (min-width: 800px) and (min-width: 1280px) {
   .banner__legend {
-    padding: 0 calc(1 / 2 * (0.1 * 1280px));
+    padding: 0 64px;
   }
 }
 .banner__title {
@@ -2305,8 +2306,8 @@ button {
 }
 @media only screen and (min-width: 1280px) {
   .banner {
-    padding-left: calc(1 / 2 * (100% - 1280px));
-    padding-right: calc(1 / 2 * (100% - 1280px));
+    padding-left: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
+    padding-right: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
   }
   .banner__legend {
     width: 1280px;
@@ -2334,8 +2335,8 @@ button {
 }
 @media only screen and (min-width: 800px) and (min-width: 1280px) {
   .menu {
-    padding-left: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
-    padding-right: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
+    padding-left: calc(1 / 2 * (100% - 1280px + 2 * 64px));
+    padding-right: calc(1 / 2 * (100% - 1280px + 2 * 64px));
     display: grid;
     grid-template-columns: 32% 32% 32%;
     grid-template-rows: auto;
@@ -2509,7 +2510,7 @@ button {
 }
 @media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .banner__legend {
-    padding: 0 calc(1 / 2 * (0.1 * 1280px));
+    padding: 0 64px;
   }
 }
 @media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
@@ -2533,8 +2534,8 @@ button {
 }
 @media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 1280px) {
   .banner {
-    padding-left: calc(1 / 2 * (100% - 1280px));
-    padding-right: calc(1 / 2 * (100% - 1280px));
+    padding-left: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
+    padding-right: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
   }
   .banner__legend {
     width: 1280px;
@@ -2563,8 +2564,8 @@ button {
 }
 @media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .menu {
-    padding-left: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
-    padding-right: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
+    padding-left: calc(1 / 2 * (100% - 1280px + 2 * 64px));
+    padding-right: calc(1 / 2 * (100% - 1280px + 2 * 64px));
     display: grid;
     grid-template-columns: 32% 32% 32%;
     grid-template-rows: auto;
@@ -2739,7 +2740,7 @@ button {
 }
 @media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .banner__legend {
-    padding: 0 calc(1 / 2 * (0.1 * 1280px));
+    padding: 0 64px;
   }
 }
 @media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
@@ -2763,8 +2764,8 @@ button {
 }
 @media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 1280px) {
   .banner {
-    padding-left: calc(1 / 2 * (100% - 1280px));
-    padding-right: calc(1 / 2 * (100% - 1280px));
+    padding-left: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
+    padding-right: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
   }
   .banner__legend {
     width: 1280px;
@@ -2793,8 +2794,8 @@ button {
 }
 @media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .menu {
-    padding-left: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
-    padding-right: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
+    padding-left: calc(1 / 2 * (100% - 1280px + 2 * 64px));
+    padding-right: calc(1 / 2 * (100% - 1280px + 2 * 64px));
     display: grid;
     grid-template-columns: 32% 32% 32%;
     grid-template-rows: auto;
@@ -2969,7 +2970,7 @@ button {
 }
 @media only screen and (min-width: 1280px) and (min-width: 800px) and (min-width: 1280px) {
   .banner__legend {
-    padding: 0 calc(1 / 2 * (0.1 * 1280px));
+    padding: 0 64px;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -2993,8 +2994,8 @@ button {
 }
 @media only screen and (min-width: 1280px) and (min-width: 1280px) {
   .banner {
-    padding-left: calc(1 / 2 * (100% - 1280px));
-    padding-right: calc(1 / 2 * (100% - 1280px));
+    padding-left: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
+    padding-right: calc(calc(1 / 2 * (100% - 1280px + 2 * 64px)) - 64px);
   }
   .banner__legend {
     width: 1280px;
@@ -3023,8 +3024,8 @@ button {
 }
 @media only screen and (min-width: 1280px) and (min-width: 800px) and (min-width: 1280px) {
   .menu {
-    padding-left: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
-    padding-right: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
+    padding-left: calc(1 / 2 * (100% - 1280px + 2 * 64px));
+    padding-right: calc(1 / 2 * (100% - 1280px + 2 * 64px));
     display: grid;
     grid-template-columns: 32% 32% 32%;
     grid-template-rows: auto;

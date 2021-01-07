@@ -1,6 +1,3 @@
-$main-padding: 5%;
-$section-padding-vertical: 2rem;
-
 $breakpoint-orga: (
   footer: 600px,
   maximum-width: 1280px,
@@ -10,6 +7,12 @@ $breakpoint-orga: (
   banner: 800px,
   menu: 800px,
 );
+
+$main-padding: 5%;
+$main-padding-at-breakpoint : 0.05 * map-get($breakpoint-orga, maximum-width); /*attention le 0.05 lié à $main-padding*/
+$main-padding-max: calc(1 / 2 * (100% - #{map-get($breakpoint-orga, maximum-width)} + 2 * #{$main-padding-at-breakpoint})); 
+$main-padding-max-fullsize: calc(#{$main-padding-max} - #{$main-padding-at-breakpoint});
+$section-padding-vertical: 2rem;
 
 $size-generic: (
   base: (
