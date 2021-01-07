@@ -17,7 +17,7 @@
     &__logo, &__bar {
         width: 60vw; /*height logo => 10.4vw*/
         height: 10.4vw;
-        transform: translate(-50%, -20vw);
+        transform: translate(-50%, -20vh);
     }
     &__bar {
         background-color: map-get($color,tertiary);
@@ -28,10 +28,15 @@
     &__spinner{
         width: 15vw; /*height logo => 10.4vw*/
         height: 15vw;
-        transform: translate(-50%, 5vw);
+        transform: translate(-50%, 5vh);
         font-size: 15vw;
         color: map-get($color, quaternary);
         animation: spinner-spinner 0.9s cubic-bezier(0.25,0.1, 0.75, 0.9) infinite;
+        @media only screen and (max-height: 400px) {
+            width: 8vw;
+            height: 8vw;
+            font-size: 8vw;
+        }
     }
 
     /*reste à mettre une animation pour faire diminuer la div __bar vers la droite et touner le spinner*/
