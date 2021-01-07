@@ -71,6 +71,18 @@
     transform: translate(-50%, 5vh) rotate(1turn);
   }
 }
+/*Mixin répétant tout le code de la page où elle est inclue en changeant les tailles*/
+/*Avant chaque commande @content, elle charge la map des tailles correspondant à ce breakpoint*/
+/*Elle ne fait rien au premier tour de boucle et 2 actions au dernier, le but est de connaitre le breakpoint suivant pour borner le mediaquery*/
+/*On stock le breakpoint dans la variable buffer, et on utilise le counter pour savoir où on se situe dans les tours de boucle*/
+/*Dans l'idéal et pour ne pas répliquer trop de code inutilement, il faudrait que le contenu du @content soit "filtré" à partir du 1er recopiage pour ne contenir que les commandes contenant "map-get"*/
+/*la seule solution trouvée serait de séparer les commandes à inclure dans la mixin et les autres, mais ça nuit trop à la maintenabilité*/
+/*Mixin pour harmoniser les box-shadow avec 2 paramètres*/
+/*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
+/*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
+/*$course : entrée plat dessert, attention au H2 en 1ère position*/
+/*$dish : titre, spacer puis jusqu'à 4 plats*/
+/*le bouton commander apparaît en fin des 2 boucles*/
 *,
 *::after,
 *::before {
@@ -110,6 +122,7 @@ input, button {
   font: inherit;
 }
 
+/*rien*/
 button {
   width: fit-content;
   border: none;
@@ -307,6 +320,7 @@ button {
   }
 }
 
+/*rien*/
 .header {
   width: 100%;
   margin-top: 2rem;
@@ -390,6 +404,7 @@ button {
     left: calc(1.8rem + 1 / 2 * (100% - 1280px));
   }
 }
+/*rien*/
 .footer {
   background-color: #353535;
   color: white;
@@ -477,6 +492,7 @@ button {
     /*léger padding supplémentaire sur cette section*/
   }
 }
+/*rien*/
 .search {
   font-size: 1.2rem;
   padding: 0;
@@ -760,7 +776,7 @@ button {
   }
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .search {
     font-size: 1.2rem;
     padding: 0;
@@ -813,7 +829,7 @@ button {
     margin-bottom: 1.95rem;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 71.2rem) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 71.2rem) {
   .presentation {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -837,7 +853,7 @@ button {
     margin: 0;
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .principle {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -872,7 +888,7 @@ button {
     font-size: 1.125rem;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 25rem) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 25rem) {
   .principle__step {
     /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
     width: 21.6666666667rem;
@@ -881,7 +897,7 @@ button {
     transform: translateX(0.4166666667rem);
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .principle__index {
     height: 1.6666666667rem;
     /*1/3 de la hauteur de step*/
@@ -898,7 +914,7 @@ button {
     z-index: 2;
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .principle__logo {
     width: 1.5rem;
     margin-left: 1.875rem;
@@ -908,7 +924,7 @@ button {
     text-align: center;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 1280px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 1280px) {
   .principle {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -941,7 +957,7 @@ button {
     transform: translateX(0);
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .foods {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -957,7 +973,7 @@ button {
     align-items: center;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 720px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 720px) {
   .foods__list {
     /*On passe sur 2 colonnes*/
     flex-direction: row;
@@ -965,7 +981,7 @@ button {
     justify-content: space-between;
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .foods__card {
     width: 100%;
     height: calc(0.75 * 90vw);
@@ -1033,7 +1049,7 @@ button {
     display: none;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 720px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 720px) {
   .foods__card {
     /*On passe sur 2 colonnes*/
     width: 47.5%;
@@ -1043,7 +1059,7 @@ button {
     border-radius: 2vw;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 720px) and (min-width: 1280px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 720px) and (min-width: 1280px) {
   .foods__card {
     /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
     height: 408px;
@@ -1052,7 +1068,7 @@ button {
     /*quasi la même que la marge horizontale*/
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) {
   .search {
     font-size: 1.2rem;
     padding: 0;
@@ -1105,7 +1121,7 @@ button {
     margin-bottom: 1.95rem;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 71.2rem) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) and (min-width: 71.2rem) {
   .presentation {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -1129,7 +1145,7 @@ button {
     margin: 0;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) {
   .principle {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -1164,7 +1180,7 @@ button {
     font-size: 1.395rem;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 25rem) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) and (min-width: 25rem) {
   .principle__step {
     /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
     width: 26.8666666667rem;
@@ -1173,7 +1189,7 @@ button {
     transform: translateX(0.5166666667rem);
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) {
   .principle__index {
     height: 2.0666666667rem;
     /*1/3 de la hauteur de step*/
@@ -1190,7 +1206,7 @@ button {
     z-index: 2;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) {
   .principle__logo {
     width: 1.86rem;
     margin-left: 2.325rem;
@@ -1200,7 +1216,7 @@ button {
     text-align: center;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 1280px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) and (min-width: 1280px) {
   .principle {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1233,7 +1249,7 @@ button {
     transform: translateX(0);
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) {
   .foods {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -1249,7 +1265,7 @@ button {
     align-items: center;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 720px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) and (min-width: 720px) {
   .foods__list {
     /*On passe sur 2 colonnes*/
     flex-direction: row;
@@ -1257,7 +1273,7 @@ button {
     justify-content: space-between;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) {
   .foods__card {
     width: 100%;
     height: calc(0.75 * 90vw);
@@ -1325,7 +1341,7 @@ button {
     display: none;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 720px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) and (min-width: 720px) {
   .foods__card {
     /*On passe sur 2 colonnes*/
     width: 47.5%;
@@ -1335,7 +1351,7 @@ button {
     border-radius: 2vw;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 720px) and (min-width: 1280px) {
+@media only screen and (min-width: 600px) and (max-width: calc(720px - 1px)) and (min-width: 720px) and (min-width: 1280px) {
   .foods__card {
     /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
     height: 408px;
@@ -1344,7 +1360,7 @@ button {
     /*quasi la même que la marge horizontale*/
   }
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) {
   .search {
     font-size: 1.2rem;
     padding: 0;
@@ -1397,7 +1413,7 @@ button {
     margin-bottom: 1.95rem;
   }
 }
-@media only screen and (min-width: 720px) and (min-width: 71.2rem) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) and (min-width: 71.2rem) {
   .presentation {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -1421,7 +1437,7 @@ button {
     margin: 0;
   }
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) {
   .principle {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -1456,7 +1472,7 @@ button {
     font-size: 1.395rem;
   }
 }
-@media only screen and (min-width: 720px) and (min-width: 25rem) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) and (min-width: 25rem) {
   .principle__step {
     /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
     width: 26.8666666667rem;
@@ -1465,7 +1481,7 @@ button {
     transform: translateX(0.5166666667rem);
   }
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) {
   .principle__index {
     height: 2.0666666667rem;
     /*1/3 de la hauteur de step*/
@@ -1482,7 +1498,7 @@ button {
     z-index: 2;
   }
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) {
   .principle__logo {
     width: 1.86rem;
     margin-left: 2.325rem;
@@ -1492,7 +1508,7 @@ button {
     text-align: center;
   }
 }
-@media only screen and (min-width: 720px) and (min-width: 1280px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) and (min-width: 1280px) {
   .principle {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1525,7 +1541,7 @@ button {
     transform: translateX(0);
   }
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) {
   .foods {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -1541,7 +1557,7 @@ button {
     align-items: center;
   }
 }
-@media only screen and (min-width: 720px) and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) and (min-width: 720px) {
   .foods__list {
     /*On passe sur 2 colonnes*/
     flex-direction: row;
@@ -1549,7 +1565,7 @@ button {
     justify-content: space-between;
   }
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) {
   .foods__card {
     width: 100%;
     height: calc(0.75 * 90vw);
@@ -1617,7 +1633,7 @@ button {
     display: none;
   }
 }
-@media only screen and (min-width: 720px) and (min-width: 720px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) and (min-width: 720px) {
   .foods__card {
     /*On passe sur 2 colonnes*/
     width: 47.5%;
@@ -1627,7 +1643,7 @@ button {
     border-radius: 2vw;
   }
 }
-@media only screen and (min-width: 720px) and (min-width: 720px) and (min-width: 1280px) {
+@media only screen and (min-width: 720px) and (max-width: calc(1000px - 1px)) and (min-width: 720px) and (min-width: 1280px) {
   .foods__card {
     /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
     height: 408px;
@@ -1636,7 +1652,7 @@ button {
     /*quasi la même que la marge horizontale*/
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) {
   .search {
     font-size: 1.2rem;
     padding: 0;
@@ -1689,7 +1705,7 @@ button {
     margin-bottom: 1.95rem;
   }
 }
-@media only screen and (min-width: 1000px) and (min-width: 71.2rem) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) and (min-width: 71.2rem) {
   .presentation {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -1713,7 +1729,7 @@ button {
     margin: 0;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) {
   .principle {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -1748,7 +1764,7 @@ button {
     font-size: 1.395rem;
   }
 }
-@media only screen and (min-width: 1000px) and (min-width: 25rem) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) and (min-width: 25rem) {
   .principle__step {
     /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
     width: 26.8666666667rem;
@@ -1757,7 +1773,7 @@ button {
     transform: translateX(0.5166666667rem);
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) {
   .principle__index {
     height: 2.0666666667rem;
     /*1/3 de la hauteur de step*/
@@ -1774,7 +1790,7 @@ button {
     z-index: 2;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) {
   .principle__logo {
     width: 1.86rem;
     margin-left: 2.325rem;
@@ -1784,7 +1800,7 @@ button {
     text-align: center;
   }
 }
-@media only screen and (min-width: 1000px) and (min-width: 1280px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) and (min-width: 1280px) {
   .principle {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1817,7 +1833,7 @@ button {
     transform: translateX(0);
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) {
   .foods {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -1833,7 +1849,7 @@ button {
     align-items: center;
   }
 }
-@media only screen and (min-width: 1000px) and (min-width: 720px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) and (min-width: 720px) {
   .foods__list {
     /*On passe sur 2 colonnes*/
     flex-direction: row;
@@ -1841,7 +1857,7 @@ button {
     justify-content: space-between;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) {
   .foods__card {
     width: 100%;
     height: calc(0.75 * 90vw);
@@ -1909,7 +1925,7 @@ button {
     display: none;
   }
 }
-@media only screen and (min-width: 1000px) and (min-width: 720px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) and (min-width: 720px) {
   .foods__card {
     /*On passe sur 2 colonnes*/
     width: 47.5%;
@@ -1919,7 +1935,7 @@ button {
     border-radius: 2vw;
   }
 }
-@media only screen and (min-width: 1000px) and (min-width: 720px) and (min-width: 1280px) {
+@media only screen and (min-width: 1000px) and (max-width: calc(1280px - 1px)) and (min-width: 720px) and (min-width: 1280px) {
   .foods__card {
     /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
     height: 408px;
@@ -2220,6 +2236,7 @@ button {
     /*quasi la même que la marge horizontale*/
   }
 }
+/*rien*/
 .banner {
   padding: 0;
   position: relative;
@@ -2441,7 +2458,7 @@ button {
   flex: none;
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .banner {
     padding: 0;
     position: relative;
@@ -2481,23 +2498,23 @@ button {
     border-radius: 1.8rem 1.8rem 0 0;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 800px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) {
   .banner__legend {
     padding: 0 calc(0.05 * 800px + 1 / 2 * (100% - 800px));
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 800px) and (min-width: 1280px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .banner__legend {
     padding: 0 calc(1 / 2 * (0.1 * 1280px));
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .banner__title {
     font-size: 1.8rem;
     font-weight: normal;
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .banner__like {
     margin: 0 0.9rem;
   }
@@ -2505,12 +2522,12 @@ button {
     background: linear-gradient(to bottom, #f6f6f6 80%, transparent);
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 800px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) {
   .banner {
     height: 532.8px;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 1280px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 1280px) {
   .banner {
     padding-left: calc(1 / 2 * (100% - 1280px));
     padding-right: calc(1 / 2 * (100% - 1280px));
@@ -2520,7 +2537,7 @@ button {
     border-radius: unset;
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .menu {
     background-color: #f6f6f6;
     padding: 0 0 2rem 0;
@@ -2534,13 +2551,13 @@ button {
     padding-right: 8%;
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 800px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) {
   .menu {
     padding-left: calc(1 / 2 * (100% - 800px));
     padding-right: calc(1 / 2 * (100% - 800px));
   }
 }
-@media only screen and (min-width: 450px) and (min-width: 800px) and (min-width: 1280px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .menu {
     padding-left: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
     padding-right: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
@@ -2561,7 +2578,7 @@ button {
     padding-right: 5%;
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .course {
     padding: 3.3333333333%;
   }
@@ -2582,7 +2599,7 @@ button {
     /*pour l'animation d'entrée*/
   }
 }
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 450px) and (max-width: calc(600px - 1px)) {
   .dish {
     margin: 0.65rem 0;
     height: 4.55rem;
@@ -2670,7 +2687,7 @@ button {
     flex: none;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
   .banner {
     padding: 0;
     position: relative;
@@ -2710,23 +2727,23 @@ button {
     border-radius: 2.5rem 2.5rem 0 0;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 800px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) {
   .banner__legend {
     padding: 0 calc(0.05 * 800px + 1 / 2 * (100% - 800px));
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 800px) and (min-width: 1280px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .banner__legend {
     padding: 0 calc(1 / 2 * (0.1 * 1280px));
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
   .banner__title {
     font-size: 2.5rem;
     font-weight: normal;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
   .banner__like {
     margin: 0 1.25rem;
   }
@@ -2734,12 +2751,12 @@ button {
     background: linear-gradient(to bottom, #f6f6f6 80%, transparent);
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 800px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) {
   .banner {
     height: 532.8px;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 1280px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 1280px) {
   .banner {
     padding-left: calc(1 / 2 * (100% - 1280px));
     padding-right: calc(1 / 2 * (100% - 1280px));
@@ -2749,7 +2766,7 @@ button {
     border-radius: unset;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
   .menu {
     background-color: #f6f6f6;
     padding: 0 0 2rem 0;
@@ -2763,13 +2780,13 @@ button {
     padding-right: 8%;
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 800px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) {
   .menu {
     padding-left: calc(1 / 2 * (100% - 800px));
     padding-right: calc(1 / 2 * (100% - 800px));
   }
 }
-@media only screen and (min-width: 600px) and (min-width: 800px) and (min-width: 1280px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) and (min-width: 800px) and (min-width: 1280px) {
   .menu {
     padding-left: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
     padding-right: calc(1 / 2 * (0.1 * 1280px + 100% - 1280px));
@@ -2790,7 +2807,7 @@ button {
     padding-right: 5%;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
   .course {
     padding: 3.3333333333%;
   }
@@ -2811,7 +2828,7 @@ button {
     /*pour l'animation d'entrée*/
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: calc(1280px - 1px)) {
   .dish {
     margin: 0.875rem 0;
     height: 6.125rem;
@@ -3128,8 +3145,6 @@ button {
     flex: none;
   }
 }
-/*$course : entrée plat dessert, attention au H2*/
-/*$dish : titre, spacer puis jusqu'à 4 plats*/
 .course:nth-child(2) > *:nth-child(1) {
   animation: dish-appearence 0.4s 0s both;
 }

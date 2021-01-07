@@ -1,4 +1,4 @@
-@include responsive(size-index, $size-index) {
+@include responsive($size-index) {
   .search {
     font-size: map-get($size, search);
     padding: 0; /*pleine page donc suppression du padding général*/

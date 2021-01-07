@@ -1,4 +1,4 @@
-@include responsive(size-generic, $size-generic) {
+@include responsive($size-generic) {
   button {
     width: fit-content;
     border: none;

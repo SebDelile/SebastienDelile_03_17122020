@@ -1,4 +1,4 @@
-@include responsive(size-menu, $size-menu) {
+@include responsive($size-menu) {
   .banner {
     padding: 0;
     position: relative;

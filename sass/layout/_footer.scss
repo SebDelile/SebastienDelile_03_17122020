@@ -1,4 +1,4 @@
-@include responsive(size-generic, $size-generic) {
+@include responsive($size-generic) {
   .footer {
     background-color: map-get($color, background-footer);
     color: white;
