@@ -16,19 +16,21 @@
         <a class="header__goback" href="index.html"><i class="fas fa-arrow-left"></i></a>
     </header>
     <section class="banner">
-        <img class="banner__img banner__img--bottom" src="public/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
-            alt="restaurant-banner">
+        <img class="banner__img banner__img--bottom"
+            src="public/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="restaurant-banner">
         <div class="banner__legend">
             <h1 class="banner__title">Le délice des sens</h1>
             <label class="banner__like like">
                 <input type="checkbox">
-                <i class="fas fa-heart"></i>
                 <i class="far fa-heart"></i>
+                <span class="like__mask"></span>
+                <i class="fas fa-heart"></i>
             </label>
         </div>
     </section>
     <section class="menu">
-        <h2 class="menu__title">Menu</h2> <!--Display none-->
+        <h2 class="menu__title">Menu</h2>
+        <!--Display none-->
         <article class="course">
             <h2 class="course__title">Entrées</h2>
             <div class="course__spacer"></div>
@@ -159,25 +161,14 @@
 
     <footer class="footer">
         <h3 class="footer__logo">Ohmyfood</h3>
-        <table class="footer__links">
-            <tr>
-                <td class="footer__links__icon"><i class="fas fa-utensils"></i></td>
-                <td><a href="#">Proposer un restaurant</a></td>
-            </tr>
-            <tr>
-                <td class="footer__links__icon"><i class="fas fa-hands-helping fa-xs"></i></td>
-                <td><a href="#">Devenir partenaire</a></td>
-            </tr>
-        </table>
-        <table class="footer__links">
-            <!--Deux tableaux pour séparer ça en version desktop-->
-            <tr>
-                <td><a href="#">Mentions légales</a></td>
-            </tr>
-            <tr>
-                <td><a href="mailto:welcome@ohmyfood.miam">Contact</a></td>
-            </tr>
-        </table>
+        <div class="footer__links">
+            <p><i class="fas fa-utensils"></i></p>
+            <p><a href="#">Proposer un restaurant</a></p>
+            <p><i class="fas fa-hands-helping fa-xs"></i></p>
+            <p><a href="#">Devenir partenaire</a></p>
+            <p><a href="#">Mentions légales</a></p>
+            <p><a href="mailto:welcome@ohmyfood.miam">Contact</a></p>
+        </div>
     </footer>
 </body>
 

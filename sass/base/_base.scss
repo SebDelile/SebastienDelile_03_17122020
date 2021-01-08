@@ -8,13 +8,15 @@
 
 body {
     box-sizing: border-box;
+    background-color: map-get($color, background-footer); /*utile que sur grand écran qui peut afficher plus que la hauteur du site*/
 }
 
 body>*{
+    background-color: white;
     padding: 0 $main-padding;
     @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
         /*à partir d'un certain point on arrête d'étirer et on fixe la largeur du contenu*/
-        padding: 0 calc(1/2 * (0.1 * #{map-get($breakpoint-orga, maximum-width)} + 100% - #{map-get($breakpoint-orga, maximum-width)}));
+        padding: 0 $main-padding-max;
     }
 }
 
