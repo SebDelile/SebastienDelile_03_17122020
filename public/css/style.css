@@ -140,9 +140,9 @@ button {
   margin-bottom: 1.8rem;
   display: block;
   color: white;
-  background: linear-gradient(330deg, #9356dc, #ff79da);
   border-radius: 1.92rem;
   cursor: pointer;
+  background: linear-gradient(330deg, #9356dc, #ff79da);
   transition: box-shadow 400ms, background 400ms;
   box-shadow: 0 0.24rem 0.72rem rgba(64, 64, 64, 0.5);
 }
@@ -216,9 +216,9 @@ button {
     margin-bottom: 2.25rem;
     display: block;
     color: white;
-    background: linear-gradient(330deg, #9356dc, #ff79da);
     border-radius: 2.4rem;
     cursor: pointer;
+    background: linear-gradient(330deg, #9356dc, #ff79da);
     transition: box-shadow 400ms, background 400ms;
     box-shadow: 0 0.3rem 0.9rem rgba(64, 64, 64, 0.5);
   }
@@ -288,7 +288,6 @@ button {
   animation: spinner 0.2s 1.4s both linear;
   opacity: 0;
   z-index: -100;
-  /*reste à mettre une animation pour faire diminuer la div __bar vers la droite et touner le spinner*/
 }
 .loading-spinner > * {
   position: fixed;
@@ -309,12 +308,11 @@ button {
 }
 .loading-spinner__spinner {
   width: 15vw;
-  /*height logo => 10.4vw*/
   height: 15vw;
   transform: translate(-50%, 5vh);
   font-size: 15vw;
   color: #f5edff;
-  animation: spinner-spinner 0.9s cubic-bezier(0.25, 0.1, 0.75, 0.9) infinite;
+  animation: spinner-spinner 0.84s cubic-bezier(0.25, 0.1, 0.75, 0.9) infinite;
 }
 @media only screen and (max-height: 400px) {
   .loading-spinner__spinner {
@@ -763,7 +761,7 @@ button {
   /*quasi la même que la marge horizontale*/
   box-shadow: 0 0.25rem 0.75rem rgba(64, 64, 64, 0.25);
   transform: scale(1);
-  transition: all 400ms;
+  transition: transform 400ms, box-shadow 400ms;
 }
 .foods__card:hover {
   transform: scale(1.02);
@@ -1055,7 +1053,7 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.32rem 0.96rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
@@ -1347,7 +1345,7 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
@@ -1639,7 +1637,7 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.25rem 0.75rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
@@ -1931,7 +1929,7 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.32rem 0.96rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
@@ -2223,7 +2221,7 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
@@ -2455,11 +2453,11 @@ button {
 }
 .dish__checkbox:checked + .dish__selected {
   width: 3.85rem;
-  transition: all 0.4s;
+  transition: width 0.4s;
   /*transition pour apparition de la boite*/
 }
 .dish__checkbox:checked + .dish__selected i {
-  transform: translate(-100%, -50%) rotate(1turn);
+  transform: translate(-100%, -50%);
   /*centré dans la box*/
   animation: selected-icon-ON 0.4s;
 }
@@ -2476,7 +2474,7 @@ button {
   position: relative;
   overflow: hidden;
   transform-origin: right;
-  transition: all 0.3s linear;
+  transition: width 0.3s linear;
   /*transition pour la fermeture de la boite*/
 }
 .dish__selected i {
@@ -2685,11 +2683,11 @@ button {
   }
   .dish__checkbox:checked + .dish__selected {
     width: 4.55rem;
-    transition: all 0.4s;
+    transition: width 0.4s;
     /*transition pour apparition de la boite*/
   }
   .dish__checkbox:checked + .dish__selected i {
-    transform: translate(-100%, -50%) rotate(1turn);
+    transform: translate(-100%, -50%);
     /*centré dans la box*/
     animation: selected-icon-ON 0.4s;
   }
@@ -2706,7 +2704,7 @@ button {
     position: relative;
     overflow: hidden;
     transform-origin: right;
-    transition: all 0.3s linear;
+    transition: width 0.3s linear;
     /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
@@ -2915,11 +2913,11 @@ button {
   }
   .dish__checkbox:checked + .dish__selected {
     width: 6.125rem;
-    transition: all 0.4s;
+    transition: width 0.4s;
     /*transition pour apparition de la boite*/
   }
   .dish__checkbox:checked + .dish__selected i {
-    transform: translate(-100%, -50%) rotate(1turn);
+    transform: translate(-100%, -50%);
     /*centré dans la box*/
     animation: selected-icon-ON 0.4s;
   }
@@ -2936,7 +2934,7 @@ button {
     position: relative;
     overflow: hidden;
     transform-origin: right;
-    transition: all 0.3s linear;
+    transition: width 0.3s linear;
     /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
@@ -3145,11 +3143,11 @@ button {
   }
   .dish__checkbox:checked + .dish__selected {
     width: 4.55rem;
-    transition: all 0.4s;
+    transition: width 0.4s;
     /*transition pour apparition de la boite*/
   }
   .dish__checkbox:checked + .dish__selected i {
-    transform: translate(-100%, -50%) rotate(1turn);
+    transform: translate(-100%, -50%);
     /*centré dans la box*/
     animation: selected-icon-ON 0.4s;
   }
@@ -3166,7 +3164,7 @@ button {
     position: relative;
     overflow: hidden;
     transform-origin: right;
-    transition: all 0.3s linear;
+    transition: width 0.3s linear;
     /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
