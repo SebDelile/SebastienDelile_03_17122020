@@ -48,8 +48,6 @@
       font-weight: normal;
       margin-bottom: 1.5 * map-get($size, presentation__subtitle);
     }
-    &__button {
-    }
     @media only screen and (min-width: map-get($breakpoint-orga, presentation)) {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -137,8 +135,6 @@
       font-size: map-get($size, principle__step);
       color: map-get($color, light-text);
       text-align: center;
-    }
-    &__text {
     }
     @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
       display: grid;
