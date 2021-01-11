@@ -2484,6 +2484,10 @@ button {
   overflow: hidden;
   position: relative;
   box-shadow: 0 0.22rem 0.66rem rgba(64, 64, 64, 0.25);
+  transition: box-shadow 0.4s;
+}
+.dish:hover {
+  box-shadow: 0 0.22rem 0.66rem rgba(64, 64, 64, 0.5);
 }
 .dish__label {
   position: absolute;
@@ -2714,6 +2718,10 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.25);
+    transition: box-shadow 0.4s;
+  }
+  .dish:hover {
+    box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.5);
   }
   .dish__label {
     position: absolute;
@@ -2944,6 +2952,10 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 0.35rem 1.05rem rgba(64, 64, 64, 0.25);
+    transition: box-shadow 0.4s;
+  }
+  .dish:hover {
+    box-shadow: 0 0.35rem 1.05rem rgba(64, 64, 64, 0.5);
   }
   .dish__label {
     position: absolute;
@@ -3174,6 +3186,10 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.25);
+    transition: box-shadow 0.4s;
+  }
+  .dish:hover {
+    box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.5);
   }
   .dish__label {
     position: absolute;
