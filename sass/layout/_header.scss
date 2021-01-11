@@ -22,6 +22,11 @@
       width: 1.5 * map-get($size, header__goback);
       height: 1.5 * map-get($size, header__goback);
       color: map-get($color, dark-text);
+      &:focus {
+        /*navigation au clavier*/
+        outline: none;
+        text-shadow: 0 0 0.3 * map-get($size, header__goback) map-get($color, tertiary);
+      }
       i {
         transform: scale(1);
         transition: all 400ms;

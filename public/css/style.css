@@ -90,6 +90,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -146,7 +147,8 @@ button {
   transition: box-shadow 400ms, background 400ms;
   box-shadow: 0 0.24rem 0.72rem rgba(64, 64, 64, 0.5);
 }
-.button-main:hover {
+.button-main:hover, .button-main:focus {
+  outline: none;
   background: linear-gradient(330deg, #a16be0, #ff93e1);
   box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.75);
 }
@@ -220,7 +222,8 @@ button {
     transition: box-shadow 400ms, background 400ms;
     box-shadow: 0 0.3rem 0.9rem rgba(64, 64, 64, 0.5);
   }
-  .button-main:hover {
+  .button-main:hover, .button-main:focus {
+    outline: none;
     background: linear-gradient(330deg, #a16be0, #ff93e1);
     box-shadow: 0 0.45rem 1.35rem rgba(64, 64, 64, 0.75);
   }
@@ -345,6 +348,11 @@ button {
   height: 1.8rem;
   color: #353535;
 }
+.header__goback:focus {
+  /*navigation au clavier*/
+  outline: none;
+  text-shadow: 0 0 0.36rem #99e2d0;
+}
 .header__goback i {
   transform: scale(1);
   transition: all 400ms;
@@ -386,6 +394,11 @@ button {
     width: 2.7rem;
     height: 2.7rem;
     color: #353535;
+  }
+  .header__goback:focus {
+    /*navigation au clavier*/
+    outline: none;
+    text-shadow: 0 0 0.54rem #99e2d0;
   }
   .header__goback i {
     transform: scale(1);
