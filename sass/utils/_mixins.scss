@@ -34,12 +34,16 @@
 @mixin shadow($shadow-size, $opacity: 0.25) {
   box-shadow: 0 0.2 * $shadow-size 0.6 * $shadow-size rgba(64, 64, 64, $opacity);
 }
+/*Mixin pour la taille et position de la barre de chargement du loading-spinner*/
+@mixin spinner-bar-size($scale:1) {
+  transform: translate(-50%, -20vh) scaleX($scale);
+}
 
-  /*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
-  /*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
-  /*$course : entrée plat dessert, attention au H2 en 1ère position*/
-  /*$dish : titre, spacer puis jusqu'à 4 plats*/
-  /*le bouton commander apparaît en fin des 2 boucles*/
+/*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
+/*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
+/*$course : entrée plat dessert, attention au H2 en 1ère position*/
+/*$dish : titre, spacer puis jusqu'à 4 plats*/
+/*le bouton commander apparaît en fin des 2 boucles*/
 @mixin dish-appearence {
   $delay: 0.075s;
   $increment: 0;

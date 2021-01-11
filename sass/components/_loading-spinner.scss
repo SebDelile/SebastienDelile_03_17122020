@@ -16,7 +16,7 @@
     &__logo, &__bar {
         width: 60vw; /*height logo => 10.4vw*/
         height: 10.4vw;
-        transform: translate(-50%, -20vh);
+        @include spinner-bar-size;
     }
     &__bar {
         background-color: map-get($color,tertiary);

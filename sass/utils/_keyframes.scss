@@ -43,22 +43,22 @@
 
 @keyframes spinner-bar {
     0% {
-        transform: translate(-50%, -20vh) scaleX(1);
+        @include spinner-bar-size;
         animation-timing-function: linear;
     }
     18% {
-        transform: translate(-50%, -20vh) scaleX(0.9);
+        @include spinner-bar-size(0.9);
     }
     42%{
-        transform: translate(-50%, -20vh) scaleX(0.78);
+        @include spinner-bar-size(0.78);
         animation-timing-function: linear;
     }
     64%{
-        transform: translate(-50%, -20vh) scaleX(0.31);
+        @include spinner-bar-size(0.31);
         animation-timing-function: cubic-bezier(.9,0,.1,1);
     }
     100% {
-        transform: translate(-50%, -20vh) scaleX(0);
+        @include spinner-bar-size(0);
     }
 }
 
