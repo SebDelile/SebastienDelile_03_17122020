@@ -128,6 +128,10 @@
     overflow: hidden;
     position: relative;
     @include shadow(map-get($size, dish__title));
+    transition: box-shadow 0.4s;
+    &:hover {
+      @include shadow(map-get($size, dish__title), 0.5);
+    }
     &__label {
       position: absolute;
       width: 100%;
@@ -140,10 +144,10 @@
       display: none;
       &:checked + .dish__selected {
         width: 3.5 * map-get($size, dish__title);
-        transition: all 0.4s; /*transition pour apparition de la boite*/
+        transition: width $timing-dish-selected-ON; /*transition pour apparition de la boite*/
         i {
-          transform: translate(-100%, -50%) rotate(1turn); /*centré dans la box*/
-          animation: selected-icon-ON 0.4s;
+          transform: translate(-100%, -50%); /*centré dans la box*/
+          animation: selected-icon-ON $timing-dish-selected-ON;
         }
       }
     }
@@ -159,7 +163,7 @@
       position: relative;
       overflow: hidden;
       transform-origin: right;
-      transition: all 0.3s linear; /*transition pour la fermeture de la boite*/
+      transition: width $timing-dish-selected-OFF linear; /*transition pour la fermeture de la boite*/
       i {
         color: white;
         font-size: 1.2 * map-get($size, dish__title);
@@ -167,7 +171,7 @@
         top: 50%;
         right: 0;
         transform: translate(100%, -50%); /*centrage vertical + shift à droite hors champ*/
-        animation: selected-icon-OFF 0.2s linear;
+        animation: selected-icon-OFF 2/3*$timing-dish-selected-OFF linear;
       }
     }
     &__text {

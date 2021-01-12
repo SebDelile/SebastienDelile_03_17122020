@@ -1,5 +1,18 @@
 @charset "UTF-8";
 /*attention le 0.05 lié à $main-padding*/
+/*Mixin répétant tout le code de la page où elle est inclue en changeant les tailles*/
+/*Avant chaque commande @content, elle charge la map des tailles correspondant à ce breakpoint*/
+/*Elle ne fait rien au premier tour de boucle et 2 actions au dernier, le but est de connaitre le breakpoint suivant pour borner le mediaquery*/
+/*On stock le breakpoint dans la variable buffer, et on utilise le counter pour savoir où on se situe dans les tours de boucle*/
+/*Dans l'idéal et pour ne pas répliquer trop de code inutilement, il faudrait que le contenu du @content soit "filtré" à partir du 1er recopiage pour ne contenir que les commandes contenant "map-get"*/
+/*la seule solution trouvée serait de séparer les commandes à inclure dans la mixin et les autres, mais ça nuit trop à la maintenabilité*/
+/*Mixin pour harmoniser les box-shadow avec 2 paramètres*/
+/*Mixin pour la taille et position de la barre de chargement du loading-spinner*/
+/*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
+/*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
+/*$course : entrée plat dessert, attention au H2 en 1ère position*/
+/*$dish : titre, spacer puis jusqu'à 4 plats*/
+/*le bouton commander apparaît en fin des 2 boucles*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
 @keyframes selected-icon-ON {
   from {
@@ -72,24 +85,13 @@
     transform: translate(-50%, 5vh) rotate(1turn);
   }
 }
-/*Mixin répétant tout le code de la page où elle est inclue en changeant les tailles*/
-/*Avant chaque commande @content, elle charge la map des tailles correspondant à ce breakpoint*/
-/*Elle ne fait rien au premier tour de boucle et 2 actions au dernier, le but est de connaitre le breakpoint suivant pour borner le mediaquery*/
-/*On stock le breakpoint dans la variable buffer, et on utilise le counter pour savoir où on se situe dans les tours de boucle*/
-/*Dans l'idéal et pour ne pas répliquer trop de code inutilement, il faudrait que le contenu du @content soit "filtré" à partir du 1er recopiage pour ne contenir que les commandes contenant "map-get"*/
-/*la seule solution trouvée serait de séparer les commandes à inclure dans la mixin et les autres, mais ça nuit trop à la maintenabilité*/
-/*Mixin pour harmoniser les box-shadow avec 2 paramètres*/
-/*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
-/*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
-/*$course : entrée plat dessert, attention au H2 en 1ère position*/
-/*$dish : titre, spacer puis jusqu'à 4 plats*/
-/*le bouton commander apparaît en fin des 2 boucles*/
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -140,13 +142,14 @@ button {
   margin-bottom: 1.8rem;
   display: block;
   color: white;
-  background: linear-gradient(330deg, #9356dc, #ff79da);
   border-radius: 1.92rem;
   cursor: pointer;
+  background: linear-gradient(330deg, #9356dc, #ff79da);
   transition: box-shadow 400ms, background 400ms;
   box-shadow: 0 0.24rem 0.72rem rgba(64, 64, 64, 0.5);
 }
-.button-main:hover {
+.button-main:hover, .button-main:focus {
+  outline: none;
   background: linear-gradient(330deg, #a16be0, #ff93e1);
   box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.75);
 }
@@ -164,7 +167,7 @@ button {
   position: absolute;
   width: 100%;
   height: 125%;
-  z-index: 2;
+  z-index: 20;
 }
 .like input {
   display: none;
@@ -173,7 +176,6 @@ button {
   background: linear-gradient(to bottom, #ff79da, #9356dc);
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .like input:checked + .far + .like__mask {
@@ -190,15 +192,14 @@ button {
   position: absolute;
 }
 .like .fa-heart.fas {
-  z-index: 1;
+  z-index: 10;
   background: linear-gradient(to bottom, #ff79da, #9356dc);
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .like .fa-heart.far {
-  z-index: 3;
+  z-index: 30;
   font-weight: lighter;
 }
 
@@ -216,13 +217,14 @@ button {
     margin-bottom: 2.25rem;
     display: block;
     color: white;
-    background: linear-gradient(330deg, #9356dc, #ff79da);
     border-radius: 2.4rem;
     cursor: pointer;
+    background: linear-gradient(330deg, #9356dc, #ff79da);
     transition: box-shadow 400ms, background 400ms;
     box-shadow: 0 0.3rem 0.9rem rgba(64, 64, 64, 0.5);
   }
-  .button-main:hover {
+  .button-main:hover, .button-main:focus {
+    outline: none;
     background: linear-gradient(330deg, #a16be0, #ff93e1);
     box-shadow: 0 0.45rem 1.35rem rgba(64, 64, 64, 0.75);
   }
@@ -240,7 +242,7 @@ button {
     position: absolute;
     width: 100%;
     height: 125%;
-    z-index: 2;
+    z-index: 20;
   }
   .like input {
     display: none;
@@ -249,7 +251,6 @@ button {
     background: linear-gradient(to bottom, #ff79da, #9356dc);
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .like input:checked + .far + .like__mask {
@@ -266,15 +267,14 @@ button {
     position: absolute;
   }
   .like .fa-heart.fas {
-    z-index: 1;
+    z-index: 10;
     background: linear-gradient(to bottom, #ff79da, #9356dc);
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .like .fa-heart.far {
-    z-index: 3;
+    z-index: 30;
     font-weight: lighter;
   }
 }
@@ -288,7 +288,6 @@ button {
   animation: spinner 0.2s 1.4s both linear;
   opacity: 0;
   z-index: -100;
-  /*reste à mettre une animation pour faire diminuer la div __bar vers la droite et touner le spinner*/
 }
 .loading-spinner > * {
   position: fixed;
@@ -299,7 +298,7 @@ button {
   width: 60vw;
   /*height logo => 10.4vw*/
   height: 10.4vw;
-  transform: translate(-50%, -20vh);
+  transform: translate(-50%, -20vh) scaleX(1);
 }
 .loading-spinner__bar {
   background-color: #99e2d0;
@@ -309,12 +308,11 @@ button {
 }
 .loading-spinner__spinner {
   width: 15vw;
-  /*height logo => 10.4vw*/
   height: 15vw;
   transform: translate(-50%, 5vh);
   font-size: 15vw;
   color: #f5edff;
-  animation: spinner-spinner 0.9s cubic-bezier(0.25, 0.1, 0.75, 0.9) infinite;
+  animation: spinner-spinner 0.84s cubic-bezier(0.25, 0.1, 0.75, 0.9) infinite;
 }
 @media only screen and (max-height: 400px) {
   .loading-spinner__spinner {
@@ -350,6 +348,11 @@ button {
   width: 1.8rem;
   height: 1.8rem;
   color: #353535;
+}
+.header__goback:focus {
+  /*navigation au clavier*/
+  outline: none;
+  text-shadow: 0 0 0.36rem #99e2d0;
 }
 .header__goback i {
   transform: scale(1);
@@ -392,6 +395,11 @@ button {
     width: 2.7rem;
     height: 2.7rem;
     color: #353535;
+  }
+  .header__goback:focus {
+    /*navigation au clavier*/
+    outline: none;
+    text-shadow: 0 0 0.54rem #99e2d0;
   }
   .header__goback i {
     transform: scale(1);
@@ -763,11 +771,17 @@ button {
   /*quasi la même que la marge horizontale*/
   box-shadow: 0 0.25rem 0.75rem rgba(64, 64, 64, 0.25);
   transform: scale(1);
-  transition: all 400ms;
+  transition: transform 400ms, box-shadow 400ms;
 }
 .foods__card:hover {
   transform: scale(1.02);
   box-shadow: 0 0.25rem 0.75rem rgba(64, 64, 64, 0.5);
+}
+.foods__card__link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
 }
 .foods__card__img {
   object-fit: cover;
@@ -1055,11 +1069,17 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.32rem 0.96rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
     box-shadow: 0 0.32rem 0.96rem rgba(64, 64, 64, 0.5);
+  }
+  .foods__card__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
   }
   .foods__card__img {
     object-fit: cover;
@@ -1347,11 +1367,17 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.5);
+  }
+  .foods__card__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
   }
   .foods__card__img {
     object-fit: cover;
@@ -1639,11 +1665,17 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.25rem 0.75rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
     box-shadow: 0 0.25rem 0.75rem rgba(64, 64, 64, 0.5);
+  }
+  .foods__card__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
   }
   .foods__card__img {
     object-fit: cover;
@@ -1931,11 +1963,17 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.32rem 0.96rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
     box-shadow: 0 0.32rem 0.96rem rgba(64, 64, 64, 0.5);
+  }
+  .foods__card__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
   }
   .foods__card__img {
     object-fit: cover;
@@ -2223,11 +2261,17 @@ button {
     /*quasi la même que la marge horizontale*/
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.25);
     transform: scale(1);
-    transition: all 400ms;
+    transition: transform 400ms, box-shadow 400ms;
   }
   .foods__card:hover {
     transform: scale(1.02);
     box-shadow: 0 0.36rem 1.08rem rgba(64, 64, 64, 0.5);
+  }
+  .foods__card__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
   }
   .foods__card__img {
     object-fit: cover;
@@ -2441,6 +2485,10 @@ button {
   overflow: hidden;
   position: relative;
   box-shadow: 0 0.22rem 0.66rem rgba(64, 64, 64, 0.25);
+  transition: box-shadow 0.4s;
+}
+.dish:hover {
+  box-shadow: 0 0.22rem 0.66rem rgba(64, 64, 64, 0.5);
 }
 .dish__label {
   position: absolute;
@@ -2455,11 +2503,11 @@ button {
 }
 .dish__checkbox:checked + .dish__selected {
   width: 3.85rem;
-  transition: all 0.4s;
+  transition: width 0.4s;
   /*transition pour apparition de la boite*/
 }
 .dish__checkbox:checked + .dish__selected i {
-  transform: translate(-100%, -50%) rotate(1turn);
+  transform: translate(-100%, -50%);
   /*centré dans la box*/
   animation: selected-icon-ON 0.4s;
 }
@@ -2476,7 +2524,7 @@ button {
   position: relative;
   overflow: hidden;
   transform-origin: right;
-  transition: all 0.3s linear;
+  transition: width 0.3s linear;
   /*transition pour la fermeture de la boite*/
 }
 .dish__selected i {
@@ -2671,6 +2719,10 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.25);
+    transition: box-shadow 0.4s;
+  }
+  .dish:hover {
+    box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.5);
   }
   .dish__label {
     position: absolute;
@@ -2685,11 +2737,11 @@ button {
   }
   .dish__checkbox:checked + .dish__selected {
     width: 4.55rem;
-    transition: all 0.4s;
+    transition: width 0.4s;
     /*transition pour apparition de la boite*/
   }
   .dish__checkbox:checked + .dish__selected i {
-    transform: translate(-100%, -50%) rotate(1turn);
+    transform: translate(-100%, -50%);
     /*centré dans la box*/
     animation: selected-icon-ON 0.4s;
   }
@@ -2706,7 +2758,7 @@ button {
     position: relative;
     overflow: hidden;
     transform-origin: right;
-    transition: all 0.3s linear;
+    transition: width 0.3s linear;
     /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
@@ -2901,6 +2953,10 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 0.35rem 1.05rem rgba(64, 64, 64, 0.25);
+    transition: box-shadow 0.4s;
+  }
+  .dish:hover {
+    box-shadow: 0 0.35rem 1.05rem rgba(64, 64, 64, 0.5);
   }
   .dish__label {
     position: absolute;
@@ -2915,11 +2971,11 @@ button {
   }
   .dish__checkbox:checked + .dish__selected {
     width: 6.125rem;
-    transition: all 0.4s;
+    transition: width 0.4s;
     /*transition pour apparition de la boite*/
   }
   .dish__checkbox:checked + .dish__selected i {
-    transform: translate(-100%, -50%) rotate(1turn);
+    transform: translate(-100%, -50%);
     /*centré dans la box*/
     animation: selected-icon-ON 0.4s;
   }
@@ -2936,7 +2992,7 @@ button {
     position: relative;
     overflow: hidden;
     transform-origin: right;
-    transition: all 0.3s linear;
+    transition: width 0.3s linear;
     /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {
@@ -3131,6 +3187,10 @@ button {
     overflow: hidden;
     position: relative;
     box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.25);
+    transition: box-shadow 0.4s;
+  }
+  .dish:hover {
+    box-shadow: 0 0.26rem 0.78rem rgba(64, 64, 64, 0.5);
   }
   .dish__label {
     position: absolute;
@@ -3145,11 +3205,11 @@ button {
   }
   .dish__checkbox:checked + .dish__selected {
     width: 4.55rem;
-    transition: all 0.4s;
+    transition: width 0.4s;
     /*transition pour apparition de la boite*/
   }
   .dish__checkbox:checked + .dish__selected i {
-    transform: translate(-100%, -50%) rotate(1turn);
+    transform: translate(-100%, -50%);
     /*centré dans la box*/
     animation: selected-icon-ON 0.4s;
   }
@@ -3166,7 +3226,7 @@ button {
     position: relative;
     overflow: hidden;
     transform-origin: right;
-    transition: all 0.3s linear;
+    transition: width 0.3s linear;
     /*transition pour la fermeture de la boite*/
   }
   .dish__selected i {

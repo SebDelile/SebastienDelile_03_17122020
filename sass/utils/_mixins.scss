@@ -1,16 +1,17 @@
-  /*Mixin répétant tout le code de la page où elle est inclue en changeant les tailles*/
-  /*Avant chaque commande @content, elle charge la map des tailles correspondant à ce breakpoint*/
-  /*Elle ne fait rien au premier tour de boucle et 2 actions au dernier, le but est de connaitre le breakpoint suivant pour borner le mediaquery*/
-  /*On stock le breakpoint dans la variable buffer, et on utilise le counter pour savoir où on se situe dans les tours de boucle*/
-  /*Dans l'idéal et pour ne pas répliquer trop de code inutilement, il faudrait que le contenu du @content soit "filtré" à partir du 1er recopiage pour ne contenir que les commandes contenant "map-get"*/
-  /*la seule solution trouvée serait de séparer les commandes à inclure dans la mixin et les autres, mais ça nuit trop à la maintenabilité*/
+/*Mixin répétant tout le code de la page où elle est inclue en changeant les tailles*/
+/*Avant chaque commande @content, elle charge la map des tailles correspondant à ce breakpoint*/
+/*Elle ne fait rien au premier tour de boucle et 2 actions au dernier, le but est de connaitre le breakpoint suivant pour borner le mediaquery*/
+/*On stock le breakpoint dans la variable buffer, et on utilise le counter pour savoir où on se situe dans les tours de boucle*/
+/*Dans l'idéal et pour ne pas répliquer trop de code inutilement, il faudrait que le contenu du @content soit "filtré" à partir du 1er recopiage pour ne contenir que les commandes contenant "map-get"*/
+/*la seule solution trouvée serait de séparer les commandes à inclure dans la mixin et les autres, mais ça nuit trop à la maintenabilité*/
 @mixin responsive($map-name) {
   $size: () !global;
   $buffer: "";
   $counter: 0;
   @each $breakpoint, $map-size in $map-name {
     $counter: $counter + 1;
-    @if ($counter == 1) { /*rien*/
+    @if ($counter == 1) {
+      /*rien*/
     } @else if ($counter == 2) {
       $size: map-merge($size, map-get($map-name, $buffer)) !global;
       @content;
@@ -22,9 +23,13 @@
     }
     $buffer: $breakpoint;
     @if ($counter == length($map-name)) {
-      @media only screen and (min-width: $buffer) {
-        $size: map-merge($size, map-get($map-name, $breakpoint)) !global;
+      $size: map-merge($size, map-get($map-name, $breakpoint)) !global;
+      @if ($counter == 1) {
         @content;
+      } @else {
+        @media only screen and (min-width: $breakpoint) {
+          @content;
+        }
       }
     }
   }
@@ -34,12 +39,16 @@
 @mixin shadow($shadow-size, $opacity: 0.25) {
   box-shadow: 0 0.2 * $shadow-size 0.6 * $shadow-size rgba(64, 64, 64, $opacity);
 }
+/*Mixin pour la taille et position de la barre de chargement du loading-spinner*/
+@mixin spinner-bar-size($scale: 1) {
+  transform: translate(-50%, -20vh) scaleX($scale);
+}
 
-  /*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
-  /*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
-  /*$course : entrée plat dessert, attention au H2 en 1ère position*/
-  /*$dish : titre, spacer puis jusqu'à 4 plats*/
-  /*le bouton commander apparaît en fin des 2 boucles*/
+/*Mixin pour gérer l'apparition successive des plats sur les pages menu*/
+/*elle utilise 2 boucles imbriquées pour générer un sélecteur avec animation et délai incrémenté*/
+/*$course : entrée plat dessert, attention au H2 en 1ère position*/
+/*$dish : titre, spacer puis jusqu'à 4 plats*/
+/*le bouton commander apparaît en fin des 2 boucles*/
 @mixin dish-appearence {
   $delay: 0.075s;
   $increment: 0;

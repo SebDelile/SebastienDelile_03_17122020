@@ -202,10 +202,16 @@
       margin: 2.5vw 0; /*quasi la même que la marge horizontale*/
       @include shadow(map-get($size, foods__card__title));
       transform: scale(1);
-      transition: all 400ms;
+      transition: transform 400ms, box-shadow 400ms;
       &:hover {
         transform: scale(1.02);
         @include shadow(map-get($size, foods__card__title), 0.5);
+      }
+      &__link {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
       }
       &__img {
         object-fit: cover;
