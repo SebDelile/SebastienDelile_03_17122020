@@ -1,37 +1,28 @@
-@include responsive($size-generic) {
-  .footer {
-    background-color: map-get($color, background-footer);
-    color: white;
-    padding-top: $section-padding-vertical;
-    padding-bottom: $section-padding-vertical;
-    > * {
-      padding-left: 1.25vw; /*léger padding supplémentaire sur cette section*/
-    }
-    &__logo {
-      font-weight: normal;
-      margin-bottom: 0.5 * map-get($size, footer__logo);
-    }
-    &__links {
-      font-size: map-get($size, footer__links);
-      vertical-align: middle; /*---------------------------------------------------utile ?*/
-      display: grid;
-      grid-template-columns: 1.5 * map-get($size, footer__links) auto;
-      grid-template-rows: repeat(4, 1.5 * map-get($size, footer__links));
-      grid-template-areas: "e1 e2" "e3 e4" "e5 e5" "e6 e6";
-      justify-items: start;
-      align-items: center;
+.footer {
+  background-color: map-get($color, background-footer);
+  color: white;
+  padding-top: $section-padding-vertical;
+  padding-bottom: $section-padding-vertical;
+  > * {
+    padding-left: 1.25vw; /*léger padding supplémentaire sur cette section*/
+  }
+  &__logo {
+    font-weight: normal;
+    margin-bottom: 0.5 * map-get($size, footer__logo);
+  }
+  &__links {
+    font-size: map-get($size, footer__links);
+    vertical-align: middle; /*---------------------------------------------------utile ?*/
+    display: grid;
+    grid-template-columns: 1.5 * map-get($size, footer__links) auto;
+    grid-template-rows: repeat(4, 1.5 * map-get($size, footer__links));
+    grid-template-areas: "e1 e2" "e3 e4" "e5 e5" "e6 e6";
+    justify-items: start;
+    align-items: center;
 
-      @for $i from 1 through 6 {
-        > *:nth-child(#{$i}) {
-          grid-area: e + $i;
-        }
-      }
-
-      @media only screen and (min-width: map-get($breakpoint-orga, footer)) {
-        /*bascule en 2 colonnes*/
-        grid-template-columns: 1.5 * map-get($size, footer__links) repeat(2, auto);
-        grid-template-rows: repeat(2, 1.5 * map-get($size, footer__links));
-        grid-template-areas: "e1 e2 e5" "e3 e4 e6";
+    @for $i from 1 through 6 {
+      > *:nth-child(#{$i}) {
+        grid-area: e + $i;
       }
     }
 
@@ -39,16 +30,23 @@
       /*bascule en 2 colonnes*/
       grid-template-columns: 1.5 * map-get($size, footer__links) repeat(2, auto);
       grid-template-rows: repeat(2, 1.5 * map-get($size, footer__links));
-      grid-auto-flow: column;
-      &__text + &__text {
-        grid-column: 3;
-        grid-row: 1;
-      }
+      grid-template-areas: "e1 e2 e5" "e3 e4 e6";
     }
-    @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
-      > * {
-        padding-left: 0.0125 * map-get($breakpoint-orga, maximum-width); /*léger padding supplémentaire sur cette section*/
-      }
+  }
+
+  @media only screen and (min-width: map-get($breakpoint-orga, footer)) {
+    /*bascule en 2 colonnes*/
+    grid-template-columns: 1.5 * map-get($size, footer__links) repeat(2, auto);
+    grid-template-rows: repeat(2, 1.5 * map-get($size, footer__links));
+    grid-auto-flow: column;
+    &__text + &__text {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+  @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+    > * {
+      padding-left: 0.0125 * map-get($breakpoint-orga, maximum-width); /*léger padding supplémentaire sur cette section*/
     }
   }
 }

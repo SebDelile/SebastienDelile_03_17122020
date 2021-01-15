@@ -5,11 +5,17 @@
 @import "./base/base";
 @import "./base/typography";
 
-@import "./components/buttons";
-@import "./components/loading-spinner";
+@include responsive($size-generic) {
+  @import "./components/buttons";
+  @import "./components/loading-spinner";
 
-@import "./layout/header";
-@import "./layout/footer";
+  @import "./layout/header";
+  @import "./layout/footer";
+}
 
-@import "./pages/index";
-@import "./pages/menu";
+@include responsive($size-index) {
+  @import "./pages/index";
+}
+@include responsive($size-menu) {
+  @import "./pages/menu";
+}

@@ -1,275 +1,273 @@
-@include responsive($size-index) {
-  .search {
-    font-size: map-get($size, search);
-    padding: 0; /*pleine page donc suppression du padding général*/
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: darken(map-get($color, background-main), 4%);
-    color: map-get($color, dark-text);
-    box-shadow: inset 0 map-get($size, search) 0.5 * map-get($size, search) -1 * map-get($size, search) rgba(64, 64, 64, 0.5);
-    &__title {
-      display: none;
-    }
-    &__input {
-      height: 2.4 * map-get($size, search);
-      border: none;
-      background-color: unset;
-      width: 12rem;
+.search {
+  font-size: map-get($size, search);
+  padding: 0; /*pleine page donc suppression du padding général*/
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darken(map-get($color, background-main), 4%);
+  color: map-get($color, dark-text);
+  box-shadow: inset 0 map-get($size, search) 0.5 * map-get($size, search) -1 * map-get($size, search) rgba(64, 64, 64, 0.5);
+  &__title {
+    display: none;
+  }
+  &__input {
+    height: 2.4 * map-get($size, search);
+    border: none;
+    background-color: unset;
+    width: 12rem;
 
-      &::placeholder {
-        color: black;
-      }
-    }
-    &__icon {
-      margin-right: 0.8 * map-get($size, search);
-      margin-left: 2 * map-get($size, search); /*pour centrer le place holder*/
+    &::placeholder {
+      color: black;
     }
   }
+  &__icon {
+    margin-right: 0.8 * map-get($size, search);
+    margin-left: 2 * map-get($size, search); /*pour centrer le place holder*/
+  }
+}
 
-  .presentation {
+.presentation {
+  background-color: map-get($color, background-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: $section-padding-vertical;
+  padding-bottom: $section-padding-vertical;
+  > * {
+    text-align: center;
+  }
+  &__title {
+    font-size: map-get($size, presentation__title);
+    margin-bottom: 0.5 * map-get($size, presentation__title);
+  }
+  &__subtitle {
+    font-size: map-get($size, presentation__subtitle);
+    font-weight: normal;
+    margin-bottom: 1.5 * map-get($size, presentation__subtitle);
+  }
+  @media only screen and (min-width: map-get($breakpoint-orga, presentation)) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    &__title {
+      grid-column: 1;
+      grid-row: 1;
+      margin-bottom: 0;
+    }
+    &__subtitle {
+      grid-column: 1;
+      grid-row: 2;
+      margin-bottom: 0;
+    }
+    &__button {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin: 0;
+    }
+  }
+}
+
+.principle {
+  padding-top: $section-padding-vertical;
+  padding-bottom: $section-padding-vertical;
+  &__title {
+    font-size: map-get($size, section__title);
+    margin-bottom: 0.5 * map-get($size, section__title);
+  }
+  &__step {
+    font-size: map-get($size, principle__step);
     background-color: map-get($color, background-main);
+    height: 4 * map-get($size, principle__step);
+    border-radius: map-get($size, principle__step);
+    margin-top: 2/3 * map-get($size, principle__step);
+    margin-bottom: 2/3 * map-get($size, principle__step);
+    margin-left: 2/3 * map-get($size, principle__step);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    @include shadow(map-get($size, principle__step));
+    &:nth-child(2) {
+      .principle__logo {
+        font-size: 1.25 * map-get($size, principle__step);
+      }
+    }
+    &:last-child {
+      background-color: map-get($color, quaternary);
+      .principle__logo {
+        color: map-get($color, primary);
+        font-size: 0.9 * map-get($size, principle__step);
+      }
+    }
+
+    @media only screen and (min-width: map-get($breakpoint-orga, principle)) {
+      /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
+      width: (18 - 2/3) * map-get($size, principle__step);
+      margin-left: auto;
+      margin-right: auto;
+      transform: translateX(1/2 * 2/3 * map-get($size, principle__step));
+    }
+  }
+  &__index {
+    height: 4/3 * map-get($size, principle__step); /*1/3 de la hauteur de step*/
+    width: 4/3 * map-get($size, principle__step);
+    border-radius: 2/3 * map-get($size, principle__step);
+    background-color: map-get($color, primary);
+    color: white;
+    line-height: 4/3 * map-get($size, principle__step);
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    top: 2 * map-get($size, principle__step)-2/3 * map-get($size, principle__step);
+    left: -2/3 * map-get($size, principle__step);
+    z-index: 2;
+  }
+  &__logo {
+    width: 1.2 * map-get($size, principle__step);
+    margin-left: 1.5 * map-get($size, principle__step);
+    margin-right: 0.8 * map-get($size, principle__step);
+    font-size: map-get($size, principle__step);
+    color: map-get($color, light-text);
+    text-align: center;
+  }
+  @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: start;
+    align-items: center;
+    &__title {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+      margin-bottom: 0;
+    }
+    &__step {
+      grid-row: 2;
+      margin: 0;
+
+      &:nth-child(2) {
+        /*1ère étape*/
+        grid-column: 1;
+      }
+      &:nth-child(3) {
+        /*2ème étape*/
+        grid-column: 2;
+        justify-self: center;
+      }
+      &:nth-child(4) {
+        /*3ème étape*/
+        grid-column: 3;
+        justify-self: right;
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+.foods {
+  padding-top: $section-padding-vertical;
+  padding-bottom: $section-padding-vertical;
+  &__title {
+    font-size: map-get($size, section__title);
+    margin-bottom: 0.5 * map-get($size, section__title);
+  }
+  &__list {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: $section-padding-vertical;
-    padding-bottom: $section-padding-vertical;
-    > * {
-      text-align: center;
-    }
-    &__title {
-      font-size: map-get($size, presentation__title);
-      margin-bottom: 0.5 * map-get($size, presentation__title);
-    }
-    &__subtitle {
-      font-size: map-get($size, presentation__subtitle);
-      font-weight: normal;
-      margin-bottom: 1.5 * map-get($size, presentation__subtitle);
-    }
-    @media only screen and (min-width: map-get($breakpoint-orga, presentation)) {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      justify-items: center;
-      align-items: center;
-      &__title {
-        grid-column: 1;
-        grid-row: 1;
-        margin-bottom: 0;
-      }
-      &__subtitle {
-        grid-column: 1;
-        grid-row: 2;
-        margin-bottom: 0;
-      }
-      &__button {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-        margin: 0;
-      }
+    @media only screen and (min-width: map-get($breakpoint-orga, foods-list)) {
+      /*On passe sur 2 colonnes*/
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
-
-  .principle {
-    padding-top: $section-padding-vertical;
-    padding-bottom: $section-padding-vertical;
-    &__title {
-      font-size: map-get($size, section__title);
-      margin-bottom: 0.5 * map-get($size, section__title);
+  &__card {
+    width: 100%;
+    height: calc(0.75 * 90vw); /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
+    border-radius: 4vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2.5vw 0; /*quasi la même que la marge horizontale*/
+    @include shadow(map-get($size, foods__card__title));
+    transform: scale(1);
+    transition: transform 400ms, box-shadow 400ms;
+    &:hover {
+      transform: scale(1.02);
+      @include shadow(map-get($size, foods__card__title), 0.5);
     }
-    &__step {
-      font-size: map-get($size, principle__step);
-      background-color: map-get($color, background-main);
-      height: 4 * map-get($size, principle__step);
-      border-radius: map-get($size, principle__step);
-      margin-top: 2/3 * map-get($size, principle__step);
-      margin-bottom: 2/3 * map-get($size, principle__step);
-      margin-left: 2/3 * map-get($size, principle__step);
+    &__link {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+    }
+    &__img {
+      object-fit: cover;
+      height: 70%;
+      width: 100%;
+    }
+    &__legend {
+      height: 30%;
+      min-height: 3 * map-get($size, foods__card__title);
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
-      position: relative;
-      @include shadow(map-get($size, principle__step));
-      &:nth-child(2) {
-        .principle__logo {
-          font-size: 1.25 * map-get($size, principle__step);
-        }
-      }
-      &:last-child {
-        background-color: map-get($color, quaternary);
-        .principle__logo {
-          color: map-get($color, primary);
-          font-size: 0.9 * map-get($size, principle__step);
-        }
-      }
-
-      @media only screen and (min-width: map-get($breakpoint-orga, principle)) {
-        /*On laisse une marge sur les boutons pour ne pas qu'il s'étirent pleine page*/
-        width: (18 - 2/3) * map-get($size, principle__step);
-        margin-left: auto;
-        margin-right: auto;
-        transform: translateX(1/2 * 2/3 * map-get($size, principle__step));
-      }
+      padding: 0 map-get($size, foods__card__title);
     }
-    &__index {
-      height: 4/3 * map-get($size, principle__step); /*1/3 de la hauteur de step*/
-      width: 4/3 * map-get($size, principle__step);
-      border-radius: 2/3 * map-get($size, principle__step);
-      background-color: map-get($color, primary);
-      color: white;
-      line-height: 4/3 * map-get($size, principle__step);
-      vertical-align: middle;
-      text-align: center;
-      position: absolute;
-      top: 2 * map-get($size, principle__step)-2/3 * map-get($size, principle__step);
-      left: -2/3 * map-get($size, principle__step);
-      z-index: 2;
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
     }
-    &__logo {
-      width: 1.2 * map-get($size, principle__step);
-      margin-left: 1.5 * map-get($size, principle__step);
-      margin-right: 0.8 * map-get($size, principle__step);
-      font-size: map-get($size, principle__step);
-      color: map-get($color, light-text);
-      text-align: center;
-    }
-    @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      justify-items: start;
-      align-items: center;
-      &__title {
-        grid-column: 1 / span 3;
-        grid-row: 1;
-        margin-bottom: 0;
-      }
-      &__step {
-        grid-row: 2;
-        margin: 0;
-
-        &:nth-child(2) {
-          /*1ère étape*/
-          grid-column: 1;
-        }
-        &:nth-child(3) {
-          /*2ème étape*/
-          grid-column: 2;
-          justify-self: center;
-        }
-        &:nth-child(4) {
-          /*3ème étape*/
-          grid-column: 3;
-          justify-self: right;
-          transform: translateX(0);
-        }
-      }
-    }
-  }
-
-  .foods {
-    padding-top: $section-padding-vertical;
-    padding-bottom: $section-padding-vertical;
     &__title {
-      font-size: map-get($size, section__title);
-      margin-bottom: 0.5 * map-get($size, section__title);
+      font-size: map-get($size, foods__card__title);
     }
-    &__list {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      @media only screen and (min-width: map-get($breakpoint-orga, foods-list)) {
-        /*On passe sur 2 colonnes*/
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    &__place {
+      font-size: map-get($size, foods__card__place);
+    }
+    &__like {
+      margin: 0 0.5 * map-get($size, foods__card__title);
+      .like__mask {
+        background: linear-gradient(to bottom, white 80%, transparent);
       }
     }
-    &__card {
-      width: 100%;
-      height: calc(0.75 * 90vw); /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
-      border-radius: 4vw;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 2.5vw 0; /*quasi la même que la marge horizontale*/
-      @include shadow(map-get($size, foods__card__title));
-      transform: scale(1);
-      transition: transform 400ms, box-shadow 400ms;
-      &:hover {
-        transform: scale(1.02);
-        @include shadow(map-get($size, foods__card__title), 0.5);
-      }
-      &__link {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 5;
-      }
-      &__img {
-        object-fit: cover;
-        height: 70%;
-        width: 100%;
-      }
-      &__legend {
-        height: 30%;
-        min-height: 3 * map-get($size, foods__card__title);
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 map-get($size, foods__card__title);
-      }
-      &__text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-      }
-      &__title {
-        font-size: map-get($size, foods__card__title);
-      }
-      &__place {
-        font-size: map-get($size, foods__card__place);
-      }
-      &__like {
-        margin: 0 0.5 * map-get($size, foods__card__title);
-        .like__mask {
-          background: linear-gradient(to bottom, white 80%, transparent);
-        }
-      }
-      &__new {
-        font-size: 0.8 * map-get($size, new);
-        position: absolute;
-        right: 3%;
-        top: 4%;
-        background-color: map-get($color, tertiary);
-        padding: 0.2 * map-get($size, new) 0.8 * map-get($size, new);
-        color: map-get($color, new);
-      }
-      &:nth-child(3) .foods__card__new,
-      &:nth-child(4) .foods__card__new {
-        display: none;
-      }
-      @media only screen and (min-width: map-get($breakpoint-orga, foods-list)) {
-        /*On passe sur 2 colonnes*/
-        width: 47.5%; /*laisse une marge au milieu de ~5%*/
-        height: calc(0.75 * 42.5vw); /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
-        border-radius: 2vw;
-        @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
-          /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
-          height: 0.75 * 0.425 * map-get($breakpoint-orga, maximum-width);
-          border-radius: 0.02 * map-get($breakpoint-orga, maximum-width);
-          margin: 0.025 * map-get($breakpoint-orga, maximum-width) 0; /*quasi la même que la marge horizontale*/
-        }
+    &__new {
+      font-size: 0.8 * map-get($size, new);
+      position: absolute;
+      right: 3%;
+      top: 4%;
+      background-color: map-get($color, tertiary);
+      padding: 0.2 * map-get($size, new) 0.8 * map-get($size, new);
+      color: map-get($color, new);
+    }
+    &:nth-child(3) .foods__card__new,
+    &:nth-child(4) .foods__card__new {
+      display: none;
+    }
+    @media only screen and (min-width: map-get($breakpoint-orga, foods-list)) {
+      /*On passe sur 2 colonnes*/
+      width: 47.5%; /*laisse une marge au milieu de ~5%*/
+      height: calc(0.75 * 42.5vw); /*vignette au ratio ~4/3 (90vw ~= largeur de .foods)*/
+      border-radius: 2vw;
+      @media only screen and (min-width: map-get($breakpoint-orga, maximum-width)) {
+        /*la largeur du contenu est fixé il ne faut plus faire de référence à l'unité vw*/
+        height: 0.75 * 0.425 * map-get($breakpoint-orga, maximum-width);
+        border-radius: 0.02 * map-get($breakpoint-orga, maximum-width);
+        margin: 0.025 * map-get($breakpoint-orga, maximum-width) 0; /*quasi la même que la marge horizontale*/
       }
     }
   }
